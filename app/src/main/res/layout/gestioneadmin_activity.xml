@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:folding-cell="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="Gestione dei ruoli"
+        android:textColor="@color/fui_bgGitHub"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:layout_marginBottom="20dp"
+            android:id="@+id/mail_gest_admin"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_mail_black"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textColorHint="@color/browser_actions_title_color"
+            android:textColorLink="@color/fui_bgEmail"
+            android:textSize="16dp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+
+
+
+        </LinearLayout>
+        <Spinner
+            android:layout_marginBottom="20dp"
+            android:id="@+id/spinner_gest_admin"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Ruolo"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textColorHint="@color/browser_actions_title_color"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/modifica_ruolo"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_blue1"
+        android:text="Effettua modifiche"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+    <TextView
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/red_btn_bg_pressed_color"
+        android:text="Lista  Amministratori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ListView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/listViewAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

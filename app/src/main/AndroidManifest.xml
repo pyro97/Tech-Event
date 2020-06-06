@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.simonepirozzi.techevent">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        tools:replace="android:icon"
+        android:theme="@style/AppTheme1">
+
+        <activity
+            android:name=".Login"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".Registrazione">
+        </activity>
+        <activity android:name=".RecuperaPassword">
+        </activity>
+        <activity android:name=".RegistrazioneCity"/>
+<activity android:name=".EventoActivity"/>
+        <activity android:name=".GestioneEvento"/>
+        <activity android:name=".RicercaActivity"/>
+        <activity android:name=".EventiPubblicatiActivity"/>
+        <activity android:name=".ProfiloCittaPreferitaActivity"/>
+        <activity android:name=".AdminActivity"/>
+        <activity android:name=".GestioneAdmin"/>
+        <activity android:name=".BannaUtente"/>
+        <activity android:name=".GestioneEventiAdmin"/>
+        <activity android:name=".EventoActivityAdmin"/>
+    </application>
+
+</manifest>

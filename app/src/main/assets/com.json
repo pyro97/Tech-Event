@@ -1,0 +1,3852 @@
+[
+  {
+  "istat": "61001",
+  "comune": "Ailano",
+  "regione": "Campania",
+  "provincia": "CE",
+  "indirizzo": "Piazza Carlo Alberto Dalla Chiesa"
+},
+{
+"istat": "61002",
+"comune": "Alife",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza della Liberazione"
+},
+{
+"istat": "61003",
+"comune": "Alvignano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "61004",
+"comune": "Arienzo",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Sant'Agostino"
+},
+{
+"istat": "61005",
+"comune": "Aversa",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61006",
+"comune": "Baia e Latina",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via XX Settembre"
+},
+{
+"istat": "61007",
+"comune": "Bellona",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Aldo Moro"
+},
+{
+"istat": "61008",
+"comune": "Caianello",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Ceraselle"
+},
+{
+"istat": "61009",
+"comune": "Caiazzo",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Martiri Caiatini"
+},
+{
+"istat": "61010",
+"comune": "Calvi Risorta",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61011",
+"comune": "Camigliano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Principe di Piemonte"
+},
+{
+"istat": "61012",
+"comune": "Cancello ed Arnone",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61013",
+"comune": "Capodrise",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Aldo Moro"
+},
+{
+"istat": "61014",
+"comune": "Capriati a Volturno",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Croce"
+},
+{
+"istat": "61015",
+"comune": "Capua",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza dei Giudici"
+},
+{
+"istat": "61016",
+"comune": "Carinaro",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61017",
+"comune": "Carinola",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Osvaldo Mazza"
+},
+{
+"istat": "61018",
+"comune": "Casagiove",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Filippo Iovara"
+},
+{
+"istat": "61019",
+"comune": "Casal di Principe",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Giacomo Matteotti"
+},
+{
+"istat": "61020",
+"comune": "Casaluce",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Salvador Allende"
+},
+{
+"istat": "61021",
+"comune": "Casapulla",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61022",
+"comune": "Caserta",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Luigi Vanvitelli"
+},
+{
+"istat": "61023",
+"comune": "Castel Campagnano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61024",
+"comune": "Castel di Sasso",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via San Marco"
+},
+{
+"istat": "61025",
+"comune": "Castello del Matese",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61026",
+"comune": "Castel Morrone",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Bronzetti"
+},
+{
+"istat": "61027",
+"comune": "Castel Volturno",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Annunziata"
+},
+{
+"istat": "61028",
+"comune": "Cervino",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Giuseppe Toniolo"
+},
+{
+"istat": "61029",
+"comune": "Cesa",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Alcide De Gasperi"
+},
+{
+"istat": "61030",
+"comune": "Ciorlano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Guglielmo Marconi"
+},
+{
+"istat": "61031",
+"comune": "Conca della Campania",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "61032",
+"comune": "Curti",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Piave"
+},
+{
+"istat": "61033",
+"comune": "Dragoni",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61034",
+"comune": "Fontegreca",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61035",
+"comune": "Formicola",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Ottavio Morisani"
+},
+{
+"istat": "61036",
+"comune": "Francolise",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Vittorio Emanuele"
+},
+{
+"istat": "61037",
+"comune": "Frignano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via I Maggio"
+},
+{
+"istat": "61038",
+"comune": "Gallo Matese",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Piana"
+},
+{
+"istat": "61039",
+"comune": "Galluccio",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61040",
+"comune": "Giano Vetusto",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61041",
+"comune": "Gioia Sannitica",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61042",
+"comune": "Grazzanise",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Cesare Battisti"
+},
+{
+"istat": "61043",
+"comune": "Gricignano di Aversa",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61044",
+"comune": "Letino",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Castello"
+},
+{
+"istat": "61045",
+"comune": "Liberi",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61046",
+"comune": "Lusciano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Costanzo"
+},
+{
+"istat": "61047",
+"comune": "Macerata Campania",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Umberto I"
+},
+{
+"istat": "61048",
+"comune": "Maddaloni",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Giacomo Matteotti"
+},
+{
+"istat": "61049",
+"comune": "Marcianise",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61050",
+"comune": "Marzano Appio",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61051",
+"comune": "Mignano Monte Lungo",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Don Pezzoli"
+},
+{
+"istat": "61052",
+"comune": "Mondragone",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Viale Regina Margherita"
+},
+{
+"istat": "61053",
+"comune": "Orta di Atella",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Francesco Petrarca"
+},
+{
+"istat": "61054",
+"comune": "Parete",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Giorgio Amendola"
+},
+{
+"istat": "61055",
+"comune": "Pastorano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Caracciolo"
+},
+{
+"istat": "61056",
+"comune": "Piana di Monte Verna",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61057",
+"comune": "Piedimonte Matese",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Roma"
+},
+{
+"istat": "61058",
+"comune": "Pietramelara",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61059",
+"comune": "Pietravairano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61060",
+"comune": "Pignataro Maggiore",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61061",
+"comune": "Pontelatone",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Torre"
+},
+{
+"istat": "61062",
+"comune": "Portico di Caserta",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Rimembranza"
+},
+{
+"istat": "61063",
+"comune": "Prata Sannita",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Cantone"
+},
+{
+"istat": "61064",
+"comune": "Pratella",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61065",
+"comune": "Presenzano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via San Rocco"
+},
+{
+"istat": "61066",
+"comune": "Raviscanina",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Marlin Schott"
+},
+{
+"istat": "61067",
+"comune": "Recale",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61068",
+"comune": "Riardo",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Papa Giovanni XXIII"
+},
+{
+"istat": "61069",
+"comune": "Rocca D'Evandro",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Viale della Libertà"
+},
+{
+"istat": "61070",
+"comune": "Roccamonfina",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61071",
+"comune": "Roccaromana",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "61072",
+"comune": "Rocchetta e Croce",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Camillo Benso Conte di Cavour"
+},
+{
+"istat": "61073",
+"comune": "Ruviano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "61074",
+"comune": "San Cipriano d'Aversa",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61075",
+"comune": "San Felice a Cancello",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Napoli"
+},
+{
+"istat": "61076",
+"comune": "San Gregorio Matese",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Ginevra"
+},
+{
+"istat": "61077",
+"comune": "San Marcellino",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61078",
+"comune": "San Nicola la Strada",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61079",
+"comune": "San Pietro Infine",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Risorgimento"
+},
+{
+"istat": "61080",
+"comune": "San Potito Sannitico",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza della Vittoria"
+},
+{
+"istat": "61081",
+"comune": "San Prisco",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Michele Monaco"
+},
+{
+"istat": "61082",
+"comune": "Santa Maria a Vico",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Roma"
+},
+{
+"istat": "61083",
+"comune": "Santa Maria Capua Vetere",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Albana"
+},
+{
+"istat": "61084",
+"comune": "Santa Maria La Fossa",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Europa"
+},
+{
+"istat": "61085",
+"comune": "San Tammaro",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Capitelli"
+},
+{
+"istat": "61086",
+"comune": "Sant'Angelo d'Alife",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61087",
+"comune": "Sant'Arpino",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "61088",
+"comune": "Sessa Aurunca",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via XXI Luglio"
+},
+{
+"istat": "61089",
+"comune": "Sparanise",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Giovanni XXIII"
+},
+{
+"istat": "61090",
+"comune": "Succivo",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza IV Novembre"
+},
+{
+"istat": "61091",
+"comune": "Teano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "61092",
+"comune": "Teverola",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Camillo Benso Conte di Cavour"
+},
+{
+"istat": "61093",
+"comune": "Tora e Piccilli",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "61094",
+"comune": "Trentola Ducenta",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Guglielmo Marconi"
+},
+{
+"istat": "61095",
+"comune": "Vairano Patenora",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "61096",
+"comune": "Valle Agricola",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Enrico Berlinguer"
+},
+{
+"istat": "61097",
+"comune": "Valle di Maddaloni",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via IV Novembre"
+},
+{
+"istat": "61098",
+"comune": "Villa di Briano",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Leopoldo Santagata"
+},
+{
+"istat": "61099",
+"comune": "Villa Literno",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Piazza Guglielmo Marconi"
+},
+{
+"istat": "61100",
+"comune": "Vitulazio",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via P. Lagnese"
+},
+{
+"istat": "61101",
+"comune": "Falciano del Massico",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Corso Giuseppe Garibaldi"
+},
+{
+"istat": "61102",
+"comune": "Cellole",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Raffaello"
+},
+{
+"istat": "61103",
+"comune": "Casapesenna",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Corso Europa"
+},
+{
+"istat": "61104",
+"comune": "San Marco Evangelista",
+"regione": "Campania",
+"provincia": "CE",
+"indirizzo": "Via Foresta"
+},
+{
+"istat": "62001",
+"comune": "Airola",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Corso Giacomo Matteotti"
+},
+{
+"istat": "62002",
+"comune": "Amorosi",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "62003",
+"comune": "Apice",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62004",
+"comune": "Apollosa",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Pasquale Saponaro"
+},
+{
+"istat": "62005",
+"comune": "Arpaia",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "62006",
+"comune": "Arpaise",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Corso Paolo Emilio Capone"
+},
+{
+"istat": "62007",
+"comune": "Baselice",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Santa Maria"
+},
+{
+"istat": "62008",
+"comune": "Benevento",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via del Pomerio"
+},
+{
+"istat": "62009",
+"comune": "Bonea",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Carre"
+},
+{
+"istat": "62010",
+"comune": "Bucciano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Provinciale"
+},
+{
+"istat": "62011",
+"comune": "Buonalbergo",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Luigi Perrelli"
+},
+{
+"istat": "62012",
+"comune": "Calvi",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "62013",
+"comune": "Campolattaro",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Pescolombardo"
+},
+{
+"istat": "62014",
+"comune": "Campoli del Monte Taburno",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza della Marmora"
+},
+{
+"istat": "62015",
+"comune": "Casalduni",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62016",
+"comune": "Castelfranco in Miscano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Viale Roma"
+},
+{
+"istat": "62017",
+"comune": "Castelpagano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via del Popolo"
+},
+{
+"istat": "62018",
+"comune": "Castelpoto",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Giuseppe Garibaldi"
+},
+{
+"istat": "62019",
+"comune": "Castelvenere",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62020",
+"comune": "Castelvetere in Val Fortore",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Frentana"
+},
+{
+"istat": "62021",
+"comune": "Cautano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Strada Provinciale Vitulanese"
+},
+{
+"istat": "62022",
+"comune": "Ceppaloni",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Carmine Rossi"
+},
+{
+"istat": "62023",
+"comune": "Cerreto Sannita",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "62024",
+"comune": "Circello",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Pescogrosso"
+},
+{
+"istat": "62025",
+"comune": "Colle Sannita",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Giuseppe Flora"
+},
+{
+"istat": "62026",
+"comune": "Cusano Mutri",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "62027",
+"comune": "Dugenta",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Nazionale"
+},
+{
+"istat": "62028",
+"comune": "Durazzano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62029",
+"comune": "Faicchio",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Roma"
+},
+{
+"istat": "62030",
+"comune": "Foglianise",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "62031",
+"comune": "Foiano di Val Fortore",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Nazionale"
+},
+{
+"istat": "62032",
+"comune": "Forchia",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Misciuni"
+},
+{
+"istat": "62033",
+"comune": "Fragneto L'Abate",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Querce"
+},
+{
+"istat": "62034",
+"comune": "Fragneto Monforte",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Carlo Alberto"
+},
+{
+"istat": "62035",
+"comune": "Frasso Telesino",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via San Rocco"
+},
+{
+"istat": "62036",
+"comune": "Ginestra degli Schiavoni",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Porta Nuova"
+},
+{
+"istat": "62037",
+"comune": "Guardia Sanframondi",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "62038",
+"comune": "Limatola",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via San Rocco"
+},
+{
+"istat": "62039",
+"comune": "Melizzano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Traversa Via del Sannio"
+},
+{
+"istat": "62040",
+"comune": "Moiano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "62041",
+"comune": "Molinara",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Virgilio"
+},
+{
+"istat": "62042",
+"comune": "Montefalcone di Val Fortore",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Medaglia d'Oro"
+},
+{
+"istat": "62043",
+"comune": "Montesarchio",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "62044",
+"comune": "Morcone",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Corso Italia"
+},
+{
+"istat": "62045",
+"comune": "Paduli",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza XXV Luglio"
+},
+{
+"istat": "62046",
+"comune": "Pago Veiano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "62047",
+"comune": "Pannarano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Antonio d'Alessio"
+},
+{
+"istat": "62048",
+"comune": "Paolisi",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Armando Diaz"
+},
+{
+"istat": "62049",
+"comune": "Paupisi",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza De Marco"
+},
+{
+"istat": "62050",
+"comune": "Pesco Sannita",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "62051",
+"comune": "Pietraroja",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Vittoria"
+},
+{
+"istat": "62052",
+"comune": "Pietrelcina",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Corso Padre Pio"
+},
+{
+"istat": "62053",
+"comune": "Ponte",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza XXII Giugno"
+},
+{
+"istat": "62054",
+"comune": "Pontelandolfo",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "62055",
+"comune": "Puglianello",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62056",
+"comune": "Reino",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Meomartini"
+},
+{
+"istat": "62057",
+"comune": "San Bartolomeo in Galdo",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Corso Roma"
+},
+{
+"istat": "62058",
+"comune": "San Giorgio del Sannio",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza IV Novembre"
+},
+{
+"istat": "62059",
+"comune": "San Giorgio La Molara",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Nicola Ciletti"
+},
+{
+"istat": "62060",
+"comune": "San Leucio del Sannio",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza F. Zamparelli"
+},
+{
+"istat": "62061",
+"comune": "San Lorenzello",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Giacomo Matteotti"
+},
+{
+"istat": "62062",
+"comune": "San Lorenzo Maggiore",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Antionord"
+},
+{
+"istat": "62063",
+"comune": "San Lupo",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Fontanella"
+},
+{
+"istat": "62064",
+"comune": "San Marco dei Cavoti",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Rimembranza"
+},
+{
+"istat": "62065",
+"comune": "San Martino Sannita",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Servodidio"
+},
+{
+"istat": "62066",
+"comune": "San Nazzaro",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Vincenzo Soricelli"
+},
+{
+"istat": "62067",
+"comune": "San Nicola Manfredi",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "62068",
+"comune": "San Salvatore Telesino",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Gioia"
+},
+{
+"istat": "62069",
+"comune": "Santa Croce del Sannio",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62070",
+"comune": "Sant'Agata De' Goti",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62071",
+"comune": "Sant'Angelo a Cupolo",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via Pietro Nenni"
+},
+{
+"istat": "62072",
+"comune": "Sassinoro",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Largo Ossining"
+},
+{
+"istat": "62073",
+"comune": "Solopaca",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "62074",
+"comune": "Telese Terme",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Viale Edoardo Minieri"
+},
+{
+"istat": "62075",
+"comune": "Tocco Caudio",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Contrada Friuni"
+},
+{
+"istat": "62076",
+"comune": "Torrecuso",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Piazza Antonio Fusco"
+},
+{
+"istat": "62077",
+"comune": "Vitulano",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Viale San Pietro"
+},
+{
+"istat": "62078",
+"comune": "Sant'Arcangelo Trimonte",
+"regione": "Campania",
+"provincia": "BN",
+"indirizzo": "Via delle Vittorie"
+},
+{
+"istat": "63001",
+"comune": "Acerra",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Viale della Democrazia"
+},
+{
+"istat": "63002",
+"comune": "Afragola",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63003",
+"comune": "Agerola",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Ponte"
+},
+{
+"istat": "63004",
+"comune": "Anacapri",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Caprile"
+},
+{
+"istat": "63005",
+"comune": "Arzano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Raffaele Cimmino"
+},
+{
+"istat": "63006",
+"comune": "Bacoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Lungolago"
+},
+{
+"istat": "63007",
+"comune": "Barano d'Ischia",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Corrado Buono"
+},
+{
+"istat": "63008",
+"comune": "Boscoreale",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Pace"
+},
+{
+"istat": "63009",
+"comune": "Boscotrecase",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Rio"
+},
+{
+"istat": "63010",
+"comune": "Brusciano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Camillo Cucca"
+},
+{
+"istat": "63011",
+"comune": "Caivano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Cesare Battisti"
+},
+{
+"istat": "63012",
+"comune": "Calvizzano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Largo Caracciolo"
+},
+{
+"istat": "63013",
+"comune": "Camposano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "63014",
+"comune": "Capri",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "63015",
+"comune": "Carbonara di Nola",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Traversa di Via Municipio"
+},
+{
+"istat": "63016",
+"comune": "Cardito",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Giuseppe Garibaldi"
+},
+{
+"istat": "63017",
+"comune": "Casalnuovo di Napoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63018",
+"comune": "Casamarciano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "63019",
+"comune": "Casamicciola Terme",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Principessa Margherita"
+},
+{
+"istat": "63020",
+"comune": "Casandrino",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "63021",
+"comune": "Casavatore",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Filippo Palizzi"
+},
+{
+"istat": "63022",
+"comune": "Casola di Napoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "63023",
+"comune": "Casoria",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Domenico Cirillo"
+},
+{
+"istat": "63024",
+"comune": "Castellammare di Stabia",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Giovanni XXIII"
+},
+{
+"istat": "63025",
+"comune": "Castello di Cisterna",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "63026",
+"comune": "Cercola",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza della Libertà"
+},
+{
+"istat": "63027",
+"comune": "Cicciano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazzetta San Barbato"
+},
+{
+"istat": "63028",
+"comune": "Cimitile",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Conte Filo della Torre"
+},
+{
+"istat": "63029",
+"comune": "Comiziano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "63030",
+"comune": "Crispano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Pizzo Delle Canne"
+},
+{
+"istat": "63031",
+"comune": "Forio",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63032",
+"comune": "Frattamaggiore",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "63033",
+"comune": "Frattaminore",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Alessandro Manzoni"
+},
+{
+"istat": "63034",
+"comune": "Giugliano in Campania",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Campano"
+},
+{
+"istat": "63035",
+"comune": "Gragnano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Vittorio Veneto"
+},
+{
+"istat": "63036",
+"comune": "Grumo Nevano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Giovanni Amendola"
+},
+{
+"istat": "63037",
+"comune": "Ischia",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Nuova Iasolino"
+},
+{
+"istat": "63038",
+"comune": "Lacco Ameno",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Santa Restituta"
+},
+{
+"istat": "63039",
+"comune": "Lettere",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "63040",
+"comune": "Liveri",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63041",
+"comune": "Marano di Napoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "63042",
+"comune": "Mariglianella",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Dante Alighieri"
+},
+{
+"istat": "63043",
+"comune": "Marigliano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "63044",
+"comune": "Massa Lubrense",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Largo Vescovado"
+},
+{
+"istat": "63045",
+"comune": "Melito di Napoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Salvatore di Giacomo"
+},
+{
+"istat": "63046",
+"comune": "Meta",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "63047",
+"comune": "Monte di Procida",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Panoramica"
+},
+{
+"istat": "63048",
+"comune": "Mugnano di Napoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63049",
+"comune": "Napoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63050",
+"comune": "Nola",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Duomo"
+},
+{
+"istat": "63051",
+"comune": "Ottaviano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63052",
+"comune": "Palma Campania",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "63053",
+"comune": "Piano di Sorrento",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Cota"
+},
+{
+"istat": "63054",
+"comune": "Pimonte",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Roma"
+},
+{
+"istat": "63055",
+"comune": "Poggiomarino",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via De Marinis"
+},
+{
+"istat": "63056",
+"comune": "Pollena Trocchia",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Esperanta"
+},
+{
+"istat": "63057",
+"comune": "Pomigliano d'Arco",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63058",
+"comune": "Pompei",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Bartolo Longo"
+},
+{
+"istat": "63059",
+"comune": "Portici",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Campitelli"
+},
+{
+"istat": "63060",
+"comune": "Pozzuoli",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Tito Livio"
+},
+{
+"istat": "63061",
+"comune": "Procida",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Libertà"
+},
+{
+"istat": "63062",
+"comune": "Qualiano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza del Popolo"
+},
+{
+"istat": "63063",
+"comune": "Quarto",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Enrico De Nicola"
+},
+{
+"istat": "63064",
+"comune": "Ercolano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Resina"
+},
+{
+"istat": "63065",
+"comune": "Roccarainola",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "63066",
+"comune": "San Gennaro Vesuviano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Regina Margherita"
+},
+{
+"istat": "63067",
+"comune": "San Giorgio a Cremano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Vittorio Emanuele II"
+},
+{
+"istat": "63068",
+"comune": "San Giuseppe Vesuviano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Elena d'Aosta"
+},
+{
+"istat": "63069",
+"comune": "San Paolo Bel Sito",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Tommaso Vitale"
+},
+{
+"istat": "63070",
+"comune": "San Sebastiano al Vesuvio",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Raffaele Capasso"
+},
+{
+"istat": "63071",
+"comune": "Sant'Agnello",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Giacomo Matteotti"
+},
+{
+"istat": "63072",
+"comune": "Sant'Anastasia",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Siano"
+},
+{
+"istat": "63073",
+"comune": "Sant'Antimo",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "63074",
+"comune": "Sant'Antonio Abate",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza della Libertà"
+},
+{
+"istat": "63075",
+"comune": "San Vitaliano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "63076",
+"comune": "Saviano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazzale Enrico De Nicola"
+},
+{
+"istat": "63077",
+"comune": "Scisciano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza XX Settembre"
+},
+{
+"istat": "63078",
+"comune": "Serrara Fontana",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "63079",
+"comune": "Somma Vesuviana",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via San Giovanni De Matha"
+},
+{
+"istat": "63080",
+"comune": "Sorrento",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Sant'Antonino"
+},
+{
+"istat": "63081",
+"comune": "Striano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "63082",
+"comune": "Terzigno",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Vicolo Gionti"
+},
+{
+"istat": "63083",
+"comune": "Torre Annunziata",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Dante Alighieri"
+},
+{
+"istat": "63084",
+"comune": "Torre del Greco",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Alcide De Gasperi"
+},
+{
+"istat": "63085",
+"comune": "Tufino",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza G. Gragnano"
+},
+{
+"istat": "63086",
+"comune": "Vico Equense",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Gaetano Filangieri"
+},
+{
+"istat": "63087",
+"comune": "Villaricca",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "63088",
+"comune": "Visciano",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Vittorio Veneto"
+},
+{
+"istat": "63089",
+"comune": "Volla",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Aldo Moro"
+},
+{
+"istat": "63090",
+"comune": "Santa Maria la Carità",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Piazza Borrelli"
+},
+{
+"istat": "63091",
+"comune": "Trecase",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Alessandro Manzoni"
+},
+{
+"istat": "63092",
+"comune": "Massa di Somma",
+"regione": "Campania",
+"provincia": "NA",
+"indirizzo": "Via Veseri"
+},
+{
+"istat": "64001",
+"comune": "Aiello del Sabato",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Mancini"
+},
+{
+"istat": "64002",
+"comune": "Altavilla Irpina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza IV Novembre"
+},
+{
+"istat": "64003",
+"comune": "Andretta",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Libertà"
+},
+{
+"istat": "64004",
+"comune": "Aquilonia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Guglielmo Marconi"
+},
+{
+"istat": "64005",
+"comune": "Ariano Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Plebiscito"
+},
+{
+"istat": "64006",
+"comune": "Atripalda",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64007",
+"comune": "Avella",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64008",
+"comune": "Avellino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza del Popolo"
+},
+{
+"istat": "64009",
+"comune": "Bagnoli Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64010",
+"comune": "Baiano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Francesco Napolitano"
+},
+{
+"istat": "64011",
+"comune": "Bisaccia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso Romuleo"
+},
+{
+"istat": "64012",
+"comune": "Bonito",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Largo Mario Gemma"
+},
+{
+"istat": "64013",
+"comune": "Cairano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64014",
+"comune": "Calabritto",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Salvador Allende"
+},
+{
+"istat": "64015",
+"comune": "Calitri",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64016",
+"comune": "Candida",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Fontanelle"
+},
+{
+"istat": "64017",
+"comune": "Caposele",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64018",
+"comune": "Capriglia Irpina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64019",
+"comune": "Carife",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Largo Municipio"
+},
+{
+"istat": "64020",
+"comune": "Casalbore",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Giorgio Amendola"
+},
+{
+"istat": "64021",
+"comune": "Cassano Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Croce"
+},
+{
+"istat": "64022",
+"comune": "Castel Baronia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Regina Margherita"
+},
+{
+"istat": "64023",
+"comune": "Castelfranci",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64024",
+"comune": "Castelvetere sul Calore",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "64025",
+"comune": "Cervinara",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Trescine"
+},
+{
+"istat": "64026",
+"comune": "Cesinali",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64027",
+"comune": "Chianche",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Angelina"
+},
+{
+"istat": "64028",
+"comune": "Chiusano di San Domenico",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Forno"
+},
+{
+"istat": "64029",
+"comune": "Contrada",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Luigi Bruno"
+},
+{
+"istat": "64030",
+"comune": "Conza della Campania",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64031",
+"comune": "Domicella",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Vincenzo Ferrante"
+},
+{
+"istat": "64032",
+"comune": "Flumeri",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Gaetano Olivieri"
+},
+{
+"istat": "64033",
+"comune": "Fontanarosa",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "64034",
+"comune": "Forino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64035",
+"comune": "Frigento",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64036",
+"comune": "Gesualdo",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "64037",
+"comune": "Greci",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Buonarroti"
+},
+{
+"istat": "64038",
+"comune": "Grottaminarda",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Aldo Moro"
+},
+{
+"istat": "64039",
+"comune": "Grottolella",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64040",
+"comune": "Guardia Lombardi",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64041",
+"comune": "Lacedonia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Amendola"
+},
+{
+"istat": "64042",
+"comune": "Lapio",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Viale Sicilia"
+},
+{
+"istat": "64043",
+"comune": "Lauro",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "64044",
+"comune": "Lioni",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Vittorio Emanuele III"
+},
+{
+"istat": "64045",
+"comune": "Luogosano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Francesco De Sanctis"
+},
+{
+"istat": "64046",
+"comune": "Manocalzati",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Bartolomeo Duardo"
+},
+{
+"istat": "64047",
+"comune": "Marzano di Nola",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Santa Maria dell'Abbondanza"
+},
+{
+"istat": "64048",
+"comune": "Melito Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza degli Eroi"
+},
+{
+"istat": "64049",
+"comune": "Mercogliano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64050",
+"comune": "Mirabella Eclano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "64051",
+"comune": "Montaguto",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "64052",
+"comune": "Montecalvo Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Porta della Terra"
+},
+{
+"istat": "64053",
+"comune": "Montefalcione",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Aldo Moro"
+},
+{
+"istat": "64054",
+"comune": "Monteforte Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Wenceslao Loffredo"
+},
+{
+"istat": "64055",
+"comune": "Montefredane",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64056",
+"comune": "Montefusco",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Largo Castello"
+},
+{
+"istat": "64057",
+"comune": "Montella",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Ippolita Panico"
+},
+{
+"istat": "64058",
+"comune": "Montemarano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza del Popolo"
+},
+{
+"istat": "64059",
+"comune": "Montemiletto",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64060",
+"comune": "Monteverde",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Fontana"
+},
+{
+"istat": "64063",
+"comune": "Morra De Sanctis",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Francesco De Sanctis"
+},
+{
+"istat": "64064",
+"comune": "Moschiano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza IV Novembre"
+},
+{
+"istat": "64065",
+"comune": "Mugnano del Cardinale",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "64066",
+"comune": "Nusco",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via San Giovanni"
+},
+{
+"istat": "64067",
+"comune": "Ospedaletto d'Alpinolo",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Partenio"
+},
+{
+"istat": "64068",
+"comune": "Pago del Vallo di Lauro",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64069",
+"comune": "Parolise",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Giovanni Falcone"
+},
+{
+"istat": "64070",
+"comune": "Paternopoli",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza John Fitzgerald Kennedy"
+},
+{
+"istat": "64071",
+"comune": "Petruro Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Ettore Capozzi"
+},
+{
+"istat": "64072",
+"comune": "Pietradefusi",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64073",
+"comune": "Pietrastornina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Aldo Moro"
+},
+{
+"istat": "64074",
+"comune": "Prata di Principato Ultra",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Viale Municipio"
+},
+{
+"istat": "64075",
+"comune": "Pratola Serra",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Gustavo Picardo"
+},
+{
+"istat": "64076",
+"comune": "Quadrelle",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "64077",
+"comune": "Quindici",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64078",
+"comune": "Roccabascerana",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Michele Imbriani"
+},
+{
+"istat": "64079",
+"comune": "Rocca San Felice",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via V. M. Santoli"
+},
+{
+"istat": "64080",
+"comune": "Rotondi",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Luciano Vaccariello"
+},
+{
+"istat": "64081",
+"comune": "Salza Irpina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Banda di Luccaro"
+},
+{
+"istat": "64082",
+"comune": "San Mango sul Calore",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Cesare Battisti"
+},
+{
+"istat": "64083",
+"comune": "San Martino Valle Caudina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Girolamo del Balzo"
+},
+{
+"istat": "64084",
+"comune": "San Michele di Serino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64085",
+"comune": "San Nicola Baronia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Vittorio Veneto"
+},
+{
+"istat": "64086",
+"comune": "San Potito Ultra",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Barone Amatucci"
+},
+{
+"istat": "64087",
+"comune": "San Sossio Baronia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Mercato"
+},
+{
+"istat": "64088",
+"comune": "Santa Lucia di Serino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza San Giuseppe Moscati"
+},
+{
+"istat": "64089",
+"comune": "Sant'Andrea di Conza",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Largo Castello"
+},
+{
+"istat": "64090",
+"comune": "Sant'Angelo all'Esca",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Monsignore Michele Reppucci"
+},
+{
+"istat": "64091",
+"comune": "Sant'Angelo a Scala",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza San Giacomo"
+},
+{
+"istat": "64092",
+"comune": "Sant'Angelo dei Lombardi",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "64093",
+"comune": "Santa Paolina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Martiri d'Ungheria"
+},
+{
+"istat": "64095",
+"comune": "Santo Stefano del Sole",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Colacurcio"
+},
+{
+"istat": "64096",
+"comune": "Savignano Irpino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "64097",
+"comune": "Scampitella",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Piave"
+},
+{
+"istat": "64098",
+"comune": "Senerchia",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Castagni"
+},
+{
+"istat": "64099",
+"comune": "Serino",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Cicarelli"
+},
+{
+"istat": "64100",
+"comune": "Sirignano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Aniello Colucci"
+},
+{
+"istat": "64101",
+"comune": "Solofra",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza San Michele"
+},
+{
+"istat": "64102",
+"comune": "Sorbo Serpico",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Provinciale"
+},
+{
+"istat": "64103",
+"comune": "Sperone",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Luigi Lauro"
+},
+{
+"istat": "64104",
+"comune": "Sturno",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "64105",
+"comune": "Summonte",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Borgonovo"
+},
+{
+"istat": "64106",
+"comune": "Taurano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Acquaro"
+},
+{
+"istat": "64107",
+"comune": "Taurasi",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via del Convento"
+},
+{
+"istat": "64108",
+"comune": "Teora",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Largo Europa"
+},
+{
+"istat": "64109",
+"comune": "Torella dei Lombardi",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Principe di Candriano"
+},
+{
+"istat": "64110",
+"comune": "Torre Le Nocelle",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Generale Beniamino Rotondi"
+},
+{
+"istat": "64111",
+"comune": "Torrioni",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Lombardi"
+},
+{
+"istat": "64112",
+"comune": "Trevico",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Nicola Petrilli"
+},
+{
+"istat": "64113",
+"comune": "Tufo",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Santa Lucia"
+},
+{
+"istat": "64114",
+"comune": "Vallata",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso J. F. Kennedy"
+},
+{
+"istat": "64115",
+"comune": "Vallesaccarda",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Francesco Tedesco"
+},
+{
+"istat": "64116",
+"comune": "Venticano",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Don Acquilino Verardi"
+},
+{
+"istat": "64117",
+"comune": "Villamaina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "64118",
+"comune": "Villanova del Battista",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Corso Vittorio Emanuele III"
+},
+{
+"istat": "64119",
+"comune": "Volturara Irpina",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Roma"
+},
+{
+"istat": "64120",
+"comune": "Zungoli",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Via Provinciale"
+},
+{
+"istat": "64121",
+"comune": "Montoro",
+"regione": "Campania",
+"provincia": "AV",
+"indirizzo": "Piazza Michele Pironti"
+},
+{
+"istat": "65001",
+"comune": "Acerno",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Rimembranza"
+},
+{
+"istat": "65002",
+"comune": "Agropoli",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza della Repubblica"
+},
+{
+"istat": "65003",
+"comune": "Albanella",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Cavalieri di Vittorio Veneto"
+},
+{
+"istat": "65004",
+"comune": "Alfano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Combattenti"
+},
+{
+"istat": "65005",
+"comune": "Altavilla Silentina",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65006",
+"comune": "Amalfi",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza del Municipio"
+},
+{
+"istat": "65007",
+"comune": "Angri",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Crocifisso"
+},
+{
+"istat": "65008",
+"comune": "Aquara",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Giuseppe Garibaldi"
+},
+{
+"istat": "65009",
+"comune": "Ascea",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via XXIV Maggio"
+},
+{
+"istat": "65010",
+"comune": "Atena Lucana",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Viale J. F. Kennedy"
+},
+{
+"istat": "65011",
+"comune": "Atrani",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via dei Dogi"
+},
+{
+"istat": "65012",
+"comune": "Auletta",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Provinciale"
+},
+{
+"istat": "65013",
+"comune": "Baronissi",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza della Repubblica"
+},
+{
+"istat": "65014",
+"comune": "Battipaglia",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Aldo Moro"
+},
+{
+"istat": "65015",
+"comune": "Bellosguardo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Largo Municipio"
+},
+{
+"istat": "65016",
+"comune": "Bracigliano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Luigi Angrisani"
+},
+{
+"istat": "65017",
+"comune": "Buccino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65018",
+"comune": "Buonabitacolo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65019",
+"comune": "Caggiano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Nestore Caggiano"
+},
+{
+"istat": "65020",
+"comune": "Calvanico",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Raffaele Conforti"
+},
+{
+"istat": "65021",
+"comune": "Camerota",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65022",
+"comune": "Campagna",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Largo della Memoria"
+},
+{
+"istat": "65023",
+"comune": "Campora",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65024",
+"comune": "Cannalonga",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza del Popolo"
+},
+{
+"istat": "65025",
+"comune": "Capaccio Paestum",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "65026",
+"comune": "Casalbuono",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "65027",
+"comune": "Casaletto Spartano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Nazionale"
+},
+{
+"istat": "65028",
+"comune": "Casal Velino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Vittorio Veneto"
+},
+{
+"istat": "65029",
+"comune": "Caselle in Pittari",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Viale Roma"
+},
+{
+"istat": "65030",
+"comune": "Castelcivita",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65031",
+"comune": "Castellabate",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Lucia"
+},
+{
+"istat": "65032",
+"comune": "Castelnuovo Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via San Leonardo"
+},
+{
+"istat": "65033",
+"comune": "Castelnuovo di Conza",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Federico di Donato"
+},
+{
+"istat": "65034",
+"comune": "Castel San Giorgio",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Amabile"
+},
+{
+"istat": "65035",
+"comune": "Castel San Lorenzo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Luigi Salerno"
+},
+{
+"istat": "65036",
+"comune": "Castiglione del Genovesi",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65037",
+"comune": "Cava de' Tirreni",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Eugenio Abbro"
+},
+{
+"istat": "65038",
+"comune": "Celle di Bulgheria",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Canonico De Luca"
+},
+{
+"istat": "65039",
+"comune": "Centola",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Torquato Tasso"
+},
+{
+"istat": "65040",
+"comune": "Ceraso",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Anfiteatro"
+},
+{
+"istat": "65041",
+"comune": "Cetara",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "65042",
+"comune": "Cicerale",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65043",
+"comune": "Colliano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Viale Andrea Terlizzi"
+},
+{
+"istat": "65044",
+"comune": "Conca dei Marini",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65045",
+"comune": "Controne",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65046",
+"comune": "Contursi Terme",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Giuseppe Garibaldi"
+},
+{
+"istat": "65047",
+"comune": "Corbara",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65048",
+"comune": "Corleto Monforte",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65049",
+"comune": "Cuccaro Vetere",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Convento"
+},
+{
+"istat": "65050",
+"comune": "Eboli",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Matteo Ripa"
+},
+{
+"istat": "65051",
+"comune": "Felitto",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Mercato"
+},
+{
+"istat": "65052",
+"comune": "Fisciano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65053",
+"comune": "Furore",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Mola"
+},
+{
+"istat": "65054",
+"comune": "Futani",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "65055",
+"comune": "Giffoni Sei Casali",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Tito Zaniboni"
+},
+{
+"istat": "65056",
+"comune": "Giffoni Valle Piana",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Vignadonica"
+},
+{
+"istat": "65057",
+"comune": "Gioi",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Vittorio Emanuele"
+},
+{
+"istat": "65058",
+"comune": "Giungano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Vittorio Veneto"
+},
+{
+"istat": "65059",
+"comune": "Ispani",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Piave"
+},
+{
+"istat": "65060",
+"comune": "Laureana Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via del Mercato"
+},
+{
+"istat": "65061",
+"comune": "Laurino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Agostino Magliani"
+},
+{
+"istat": "65062",
+"comune": "Laurito",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Guglielmo Marconi"
+},
+{
+"istat": "65063",
+"comune": "Laviano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Largo Padre Pio"
+},
+{
+"istat": "65064",
+"comune": "Lustra",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "65065",
+"comune": "Magliano Vetere",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "65066",
+"comune": "Maiori",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Reginna"
+},
+{
+"istat": "65067",
+"comune": "Mercato San Severino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Ettore Imperio"
+},
+{
+"istat": "65068",
+"comune": "Minori",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Gaetano Cantilena"
+},
+{
+"istat": "65069",
+"comune": "Moio della Civitella",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Municipio"
+},
+{
+"istat": "65070",
+"comune": "Montano Antilia",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Giovanni Bovio"
+},
+{
+"istat": "65071",
+"comune": "Montecorice",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Duca degli Abruzzi"
+},
+{
+"istat": "65072",
+"comune": "Montecorvino Pugliano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65073",
+"comune": "Montecorvino Rovella",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Giacomo Matteotti"
+},
+{
+"istat": "65074",
+"comune": "Monteforte Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Orto Delle Castagne"
+},
+{
+"istat": "65075",
+"comune": "Monte San Giacomo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Vincenzo Marone"
+},
+{
+"istat": "65076",
+"comune": "Montesano sulla Marcellana",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Filippo Gagliardi"
+},
+{
+"istat": "65077",
+"comune": "Morigerati",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza San Laverio"
+},
+{
+"istat": "65078",
+"comune": "Nocera Inferiore",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Armando Diaz"
+},
+{
+"istat": "65079",
+"comune": "Nocera Superiore",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Giacomo Matteotti"
+},
+{
+"istat": "65080",
+"comune": "Novi Velia",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza XIX Agosto 1977"
+},
+{
+"istat": "65081",
+"comune": "Ogliastro Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Mazzini"
+},
+{
+"istat": "65082",
+"comune": "Olevano sul Tusciano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65083",
+"comune": "Oliveto Citra",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Vittorio Emanuele II"
+},
+{
+"istat": "65084",
+"comune": "Omignano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Europa"
+},
+{
+"istat": "65085",
+"comune": "Orria",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Stella"
+},
+{
+"istat": "65086",
+"comune": "Ottati",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via XXIV Maggio"
+},
+{
+"istat": "65087",
+"comune": "Padula",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65088",
+"comune": "Pagani",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Bernardo d'Arezzo"
+},
+{
+"istat": "65089",
+"comune": "Palomonte",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Convento"
+},
+{
+"istat": "65090",
+"comune": "Pellezzano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65091",
+"comune": "Perdifumo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza del Municipio"
+},
+{
+"istat": "65092",
+"comune": "Perito",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Viale Europa"
+},
+{
+"istat": "65093",
+"comune": "Pertosa",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Santa Maria Delle Grazie"
+},
+{
+"istat": "65094",
+"comune": "Petina",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65095",
+"comune": "Piaggine",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65096",
+"comune": "Pisciotta",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Nello Infante"
+},
+{
+"istat": "65097",
+"comune": "Polla",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Strada Delle Monache"
+},
+{
+"istat": "65098",
+"comune": "Pollica",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Dante Alighieri"
+},
+{
+"istat": "65099",
+"comune": "Pontecagnano Faiano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Mario Antonio Alfani"
+},
+{
+"istat": "65100",
+"comune": "Positano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Guglielmo Marconi"
+},
+{
+"istat": "65101",
+"comune": "Postiglione",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Armando Diaz"
+},
+{
+"istat": "65102",
+"comune": "Praiano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Umberto I"
+},
+{
+"istat": "65103",
+"comune": "Prignano Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65104",
+"comune": "Ravello",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via San Giovanni del Toro"
+},
+{
+"istat": "65105",
+"comune": "Ricigliano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Nuova Europa"
+},
+{
+"istat": "65106",
+"comune": "Roccadaspide",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Gaetano Giuliani"
+},
+{
+"istat": "65107",
+"comune": "Roccagloriosa",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via San Cataldo"
+},
+{
+"istat": "65108",
+"comune": "Roccapiemonte",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Alex Zanardelli"
+},
+{
+"istat": "65109",
+"comune": "Rofrano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via P. Scandizzo"
+},
+{
+"istat": "65110",
+"comune": "Romagnano al Monte",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza della Libertà"
+},
+{
+"istat": "65111",
+"comune": "Roscigno",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Silvio Resciniti"
+},
+{
+"istat": "65112",
+"comune": "Rutino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Paestum"
+},
+{
+"istat": "65113",
+"comune": "Sacco",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "65114",
+"comune": "Sala Consilina",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Mezzacapo"
+},
+{
+"istat": "65115",
+"comune": "Salento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65116",
+"comune": "Salerno",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65117",
+"comune": "Salvitelle",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Panoramica Enrico De Nicola"
+},
+{
+"istat": "65118",
+"comune": "San Cipriano Picentino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Umberto I"
+},
+{
+"istat": "65119",
+"comune": "San Giovanni a Piro",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65120",
+"comune": "San Gregorio Magno",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65121",
+"comune": "San Mango Piemonte",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65122",
+"comune": "San Marzano sul Sarno",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Umberto I"
+},
+{
+"istat": "65123",
+"comune": "San Mauro Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Serra"
+},
+{
+"istat": "65124",
+"comune": "San Mauro La Bruca",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Oberdan"
+},
+{
+"istat": "65125",
+"comune": "San Pietro al Tanagro",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Enrico Quaranta"
+},
+{
+"istat": "65126",
+"comune": "San Rufo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65127",
+"comune": "Santa Marina",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Santa Croce"
+},
+{
+"istat": "65128",
+"comune": "Sant'Angelo a Fasanella",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Guglielmo Marconi"
+},
+{
+"istat": "65129",
+"comune": "Sant'Arsenio",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Domenico Pica"
+},
+{
+"istat": "65130",
+"comune": "Sant'Egidio del Monte Albino",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65131",
+"comune": "Santomenna",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso XXIII Novembre"
+},
+{
+"istat": "65132",
+"comune": "San Valentino Torio",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Giacomo Matteotti"
+},
+{
+"istat": "65133",
+"comune": "Sanza",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza XXIV Maggio"
+},
+{
+"istat": "65134",
+"comune": "Sapri",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Villa Comunale"
+},
+{
+"istat": "65135",
+"comune": "Sarno",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza IV Novembre"
+},
+{
+"istat": "65136",
+"comune": "Sassano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Croce"
+},
+{
+"istat": "65137",
+"comune": "Scafati",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Pietro Melchiade"
+},
+{
+"istat": "65138",
+"comune": "Scala",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65139",
+"comune": "Serramezzana",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65140",
+"comune": "Serre",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Vittorio Emanuele"
+},
+{
+"istat": "65141",
+"comune": "Sessa Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65142",
+"comune": "Siano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65143",
+"comune": "Sicignano degli Alburni",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Corso Mario Pagano"
+},
+{
+"istat": "65144",
+"comune": "Stella Cilento",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65145",
+"comune": "Stio",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Trento e Trieste"
+},
+{
+"istat": "65146",
+"comune": "Teggiano",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Municipio"
+},
+{
+"istat": "65147",
+"comune": "Torchiara",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Roma"
+},
+{
+"istat": "65148",
+"comune": "Torraca",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Fenice"
+},
+{
+"istat": "65149",
+"comune": "Torre Orsaia",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Località Perato"
+},
+{
+"istat": "65150",
+"comune": "Tortorella",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Scipione Rovito"
+},
+{
+"istat": "65151",
+"comune": "Tramonti",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Treviso"
+},
+{
+"istat": "65152",
+"comune": "Trentinara",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza dei Martiri e degli Eroi"
+},
+{
+"istat": "65153",
+"comune": "Valle dell'Angelo",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Mazzei"
+},
+{
+"istat": "65154",
+"comune": "Vallo della Lucania",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Vittorio Emanuele"
+},
+{
+"istat": "65155",
+"comune": "Valva",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza della Rimembranza"
+},
+{
+"istat": "65156",
+"comune": "Vibonati",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Piazza Santissima Annunziata"
+},
+{
+"istat": "65157",
+"comune": "Vietri sul Mare",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Umberto I"
+},
+{
+"istat": "65158",
+"comune": "Bellizzi",
+"regione": "Campania",
+"provincia": "SA",
+"indirizzo": "Via Manin"
+}
+  ]

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:folding-cell="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="Gestione Evento"
+        android:textColor="@color/fui_bgGitHub"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/titGestione"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_titolo"
+                android:ems="20"
+                android:hint="Nome Evento"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/descrGestione"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_descr"
+                android:ems="10"
+                android:hint="Inserisci descrizione e/o info"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <AutoCompleteTextView
+                android:id="@+id/cittaGestione"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@drawable/ic_action_city_black"
+                android:ems="10"
+                android:hint="Città"
+                android:completionThreshold="1"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/indirizzoGestione"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_location"
+                android:ems="10"
+                android:hint="Indirizzo"
+                android:inputType="textPostalAddress"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/dataGestione"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@drawable/ic_data"
+                android:ems="10"
+                android:hint="Scegli data"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/costoGestione"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_euro"
+                android:hint="Costo"
+                android:inputType="numberDecimal"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color">
+
+
+            </EditText>
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/oraIGestione"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@drawable/ic_time"
+                android:ems="10"
+                android:hint="Orario di inizio"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/oraFGestione"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_time"
+                android:ems="10"
+                android:hint="Orario di fine"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/fotoGestione"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="1"
+                android:drawableLeft="@drawable/ic_foto"
+                android:ems="10"
+                android:hint="Seleziona Foto"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="Dimensione consigliata: 1100 x 550"
+            android:textColor="@color/red_btn_bg_pressed_color"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/rimuovi_evento_gestione"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rounded1"
+                android:text="Rimuovi"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/pubblica_evento_gestione"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/rounded_blue1"
+                android:text="Salva"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

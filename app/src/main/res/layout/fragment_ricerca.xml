@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:folding-cell="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+
+        android:text="Ricerca personalizzata"
+        android:textColor="@color/fui_bgGitHub"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/fui_bgFacebook" />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/nomeRicerca"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:drawableLeft="@drawable/ic_cerca"
+            android:hint="Nome/Argomento" />
+
+        <AutoCompleteTextView
+            android:id="@+id/luogoRicerca"
+
+            android:layout_width="300dp"
+
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:drawableLeft="@drawable/ic_action_city_black"
+            android:hint="Luogo" />
+
+      <Spinner
+          android:id="@+id/dataRicerca"
+          android:layout_marginBottom="40dp"
+          android:layout_width="300dp"
+          android:layout_height="match_parent">
+      </Spinner>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/ricercaButton"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_blue1"
+            android:text="Ricerca"
+            android:textAllCaps="false"
+            android:textColor="@color/message_color_dark"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

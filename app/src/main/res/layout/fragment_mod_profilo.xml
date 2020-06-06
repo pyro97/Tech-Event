@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lreg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_dark_default"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="Profilo"
+        android:textColor="@color/fui_bgGitHub"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="Dati personali"
+        android:textColor="@color/fui_bgFacebook"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/Mod_Name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_person_black"
+                android:ems="10"
+                android:hint="Nome"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp"
+            android:orientation="horizontal">
+
+
+
+            <EditText
+                android:id="@+id/Mod_Sur"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_person_black"
+                android:ems="10"
+                android:hint="Cognome"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textColorHint="@color/browser_actions_title_color"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/salva_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded_blue1"
+        android:text="Salva Modifiche"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/elimina_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded1"
+        android:text="Elimina Account"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

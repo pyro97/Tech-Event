@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "753807901317",
+    "firebase_url": "https://techevent-eaff4.firebaseio.com",
+    "project_id": "techevent-eaff4",
+    "storage_bucket": "techevent-eaff4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753807901317:android:d154ff40575ac897899fec",
+        "android_client_info": {
+          "package_name": "com.simonepirozzi.techevent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753807901317-6m6mnm3dsjv6gd2ao92bsb5e78ru3t6h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simonepirozzi.techevent",
+            "certificate_hash": "9af0fea83ee0aa847eb5f19afd09b0e50586435c"
+          }
+        },
+        {
+          "client_id": "753807901317-m8lhcfbcj3v5qldcue0p46e0kg2rit1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2av5Tkzf_uDImv_HKCPaunFyXOO7SdEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753807901317-m8lhcfbcj3v5qldcue0p46e0kg2rit1d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
