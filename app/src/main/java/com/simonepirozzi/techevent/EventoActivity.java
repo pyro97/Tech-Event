@@ -7,16 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,11 +20,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
+import com.simonepirozzi.techevent.ui.main.MainActivity;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,14 +36,14 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class EventoActivity extends Activity {
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
     AppCompatImageView img,back;
     TextView data,titolo,luogo,descrizione,organizz,partecip,orario,costo,contatto,tit,fav;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
 
 
@@ -106,18 +98,18 @@ public class EventoActivity extends Activity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    List<Evento> eventi=new ArrayList<>();
-                    eventi=task.getResult().toObjects(Evento.class);
+                    List<Event> eventi=new ArrayList<>();
+                    eventi=task.getResult().toObjects(Event.class);
                     if(eventi.size()==1){
                         for(int i=0;i<eventi.size();i++){
                             e=eventi.get(i);
                         }
                     }
 
-                    titolo.setText(e.getTitolo());
-                    if(e.getFoto().length()>0){
+                    titolo.setText(e.getTitle());
+                    if(e.getPhoto().length()>0){
                         try {
-                            byte [] encodeByte= Base64.decode(e.getFoto(),Base64.DEFAULT);
+                            byte [] encodeByte= Base64.decode(e.getPhoto(),Base64.DEFAULT);
                             Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                             img.setImageBitmap(bitmap);
 
@@ -137,11 +129,11 @@ public class EventoActivity extends Activity {
         db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                Utente u=task.getResult().toObject(Utente.class);
-               if(u.getPreferiti()!=null && u.getPreferiti().size()>0){
+                User u=task.getResult().toObject(User.class);
+               if(u.getPreferences()!=null && u.getPreferences().size()>0){
                    boolean trovato=false;
-                   for(int i=0;i<u.getPreferiti().size();i++){
-                       if(u.getPreferiti().get(i).getId().equalsIgnoreCase(id)){
+                   for(int i = 0; i<u.getPreferences().size(); i++){
+                       if(u.getPreferences().get(i).getId().equalsIgnoreCase(id)){
                            trovato=true;
                            fav.setCompoundDrawablesWithIntrinsicBounds(null,null,getResources().getDrawable(R.drawable.ic_favorite),null);
                        }
@@ -164,16 +156,16 @@ public class EventoActivity extends Activity {
                 db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        Utente u=task.getResult().toObject(Utente.class);
-                        if(u.getPreferiti()!=null && u.getPreferiti().size()>0){
+                        User u=task.getResult().toObject(User.class);
+                        if(u.getPreferences()!=null && u.getPreferences().size()>0){
                             boolean trovato=false;
-                            for(int i=0;i<u.getPreferiti().size();i++){
-                                if(u.getPreferiti().get(i).getId().equalsIgnoreCase(id)){
+                            for(int i = 0; i<u.getPreferences().size(); i++){
+                                if(u.getPreferences().get(i).getId().equalsIgnoreCase(id)){
                                     trovato=true;
-                                    ArrayList<Evento> preferitiNew=new ArrayList<>();
-                                    preferitiNew=u.getPreferiti();
+                                    ArrayList<Event> preferitiNew=new ArrayList<>();
+                                    preferitiNew=u.getPreferences();
                                     preferitiNew.remove(i);
-                                    u.setPreferiti(preferitiNew);
+                                    u.setPreferences(preferitiNew);
                                     db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).set(u, SetOptions.merge());
                                     fav.setCompoundDrawablesWithIntrinsicBounds(null,null,getResources().getDrawable(R.drawable.ic_add_favorite),null);
                                     if(dialogo!=null)   cancelDialogo(dialogo);
@@ -181,20 +173,20 @@ public class EventoActivity extends Activity {
                                 }
                             }
                             if(!trovato){
-                                ArrayList<Evento> preferitiNew=new ArrayList<>();
-                                preferitiNew=u.getPreferiti();
+                                ArrayList<Event> preferitiNew=new ArrayList<>();
+                                preferitiNew=u.getPreferences();
 
                                 preferitiNew.add(e);
-                                u.setPreferiti(preferitiNew);
+                                u.setPreferences(preferitiNew);
                                 db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).set(u, SetOptions.merge());
                                 fav.setCompoundDrawablesWithIntrinsicBounds(null,null,getResources().getDrawable(R.drawable.ic_favorite),null);
                                 if(dialogo!=null)   cancelDialogo(dialogo);
                                 dialogo=startDialogo(EventoActivity.this,"Evento aggiunto ai preferiti!","",SweetAlertDialog.SUCCESS_TYPE);
                             }
                         }else{
-                            ArrayList<Evento> preferiti=new ArrayList<>();
+                            ArrayList<Event> preferiti=new ArrayList<>();
                             preferiti.add(e);
-                            u.setPreferiti(preferiti);
+                            u.setPreferences(preferiti);
                             db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).set(u, SetOptions.merge());
                             fav.setCompoundDrawablesWithIntrinsicBounds(null,null,getResources().getDrawable(R.drawable.ic_favorite),null);
                             if(dialogo!=null)   cancelDialogo(dialogo);
@@ -239,7 +231,7 @@ public class EventoActivity extends Activity {
         super.onDestroy();
         if(chiamante.equalsIgnoreCase("preferiti")){
             tinyDB.putString("evento","preferiti");
-            Intent intent=new Intent(EventoActivity.this,MainActivity.class);
+            Intent intent=new Intent(EventoActivity.this, MainActivity.class);
             startActivity(intent);
         }
 

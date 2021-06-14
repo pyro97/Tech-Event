@@ -1,4 +1,46 @@
 <resources>
     <string name="app_name">Eventi</string>
+    <string name="mail_hint">E-mail</string>
+    <string name="password_hint">Password</string>
+    <string name="recover_password">Password dimenticata</string>
+    <string name="login_text">Accedi qui</string>
+    <string name="or_login">oppure</string>
+    <string name="registation_link_text">Crea un account</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_loading">caricamento</string>
+    <string name="loading_message">caricamento</string>
+    <string name="loading_profile">Carico Profilo</string>
+    <string name="warning_title">Attenzione</string>
+    <string name="connection_error">Problemi di connessione!</string>
+    <string name="verify_account">Per accedere, verifica prima il tuo account attraverso la mail che hai ricevuto</string>
+    <string name="ban_warning">Sei bannato. Attualmente non puoi accedere</string>
+    <string name="loading_title">Caricamento</string>
+    <string name="loading_access">Accesso...</string>
+    <string name="no_correct_login_title">Dati non corretti</string>
+    <string name="no_correct_login_message">Password e/o e-mail non corretti. Riprova</string>
+    <string name="empty_field">Tutti i campi devono essere riempiti</string>
+    <string name="recovery_password_title">Recupera password</string>
+    <string name="recovery_title">Recupera</string>
+    <string name="login_title">Accedi</string>
+    <string name="no_exist_mail">Email non esistente</string>
+    <string name="send_mail_error">Errore durante l\'invio</string>
+    <string name="success_send_mail">Email inviata con successo</string>
+    <string name="success_send_mail_desc">Controlla la tua posta e segui le istruzioni presenti nell\'email che ti abbiamo inviato</string>
+    <string name="send_mail_error_desc">C\'è stato un errore durante l\'invio. Riprova per favore.</string>
+    <string name="warning_desc_signin">La password deve contenere almeno 6 caratteri</string>
+    <string name="sign_in_title">Registrazione</string>
+    <string name="sign_in_desc">Inserisci i tuoi dati personali 1/2</string>
+    <string name="name_sign_in">Nome</string>
+    <string name="surname_sign_in">Cognome</string>
+    <string name="sign_in_button">Procedi</string>
+    <string name="login_sign_in">Hai già un account?</string>
+    <string name="signin_success">Registrazione avvenuta con successo</string>
+    <string name="exist_mail">Email già esistente. Utilizza un\'altra mail</string>
+    <string name="select_city_error">Devi selezionare una città per poter procedere</string>
+    <string name="select_city_hint">Scegli la tua città preferita 2/2</string>
+    <string name="selected_city_desc">Città scelta</string>
+    <string name="selected_city_text">Nessuna</string>
+    <string name="city_hint">Città</string>
+    <string name="city_list_hint">Lista città</string>
 
 </resources>

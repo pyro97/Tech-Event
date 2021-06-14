@@ -1,9 +1,7 @@
 package com.simonepirozzi.techevent;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,10 +21,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.ui.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class EventoActivityAdmin extends Activity {
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
@@ -47,7 +47,7 @@ public class EventoActivityAdmin extends Activity {
     TextView data,organizz,orario,costo,contatto;
     EditText titolo,luogo,descrizione,cittaET;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
     Spinner prio;
     Button accetta,rifiuta;
@@ -102,18 +102,18 @@ public class EventoActivityAdmin extends Activity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    List<Evento> eventi=new ArrayList<>();
-                    eventi=task.getResult().toObjects(Evento.class);
+                    List<Event> eventi=new ArrayList<>();
+                    eventi=task.getResult().toObjects(Event.class);
                     if(eventi.size()==1){
                         for(int i=0;i<eventi.size();i++){
                             e=eventi.get(i);
                         }
                     }
 
-                    titolo.setText(e.getTitolo());
-                    if(e.getFoto().length()>0){
+                    titolo.setText(e.getTitle());
+                    if(e.getPhoto().length()>0){
                         try {
-                            byte [] encodeByte= Base64.decode(e.getFoto(),Base64.DEFAULT);
+                            byte [] encodeByte= Base64.decode(e.getPhoto(),Base64.DEFAULT);
                             Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                             img.setImageBitmap(bitmap);
 
@@ -137,17 +137,17 @@ public class EventoActivityAdmin extends Activity {
                 if(descrizione.getText().toString().length()>0 && titolo.getText().toString().length()>0
                     && luogo.getText().toString().length()>0 && cittaET.getText().toString().length()>0){
 
-                    e.setStato("pubblicato");
-                    e.setDescrizione(descrizione.getText().toString());
-                    e.setTitolo(titolo.getText().toString());
-                    e.setCitta(cittaET.getText().toString().substring(0,cittaET.getText().toString().indexOf(",")));
-                    e.setPosizione(luogo.getText().toString());
-                    e.setProvincia(cittaET.getText().toString().substring(cittaET.getText().toString().indexOf(",")+1));
+                    e.setState("pubblicato");
+                    e.setDescription(descrizione.getText().toString());
+                    e.setTitle(titolo.getText().toString());
+                    e.setCity(cittaET.getText().toString().substring(0,cittaET.getText().toString().indexOf(",")));
+                    e.setPosition(luogo.getText().toString());
+                    e.setProvince(cittaET.getText().toString().substring(cittaET.getText().toString().indexOf(",")+1));
 
                     if(prio.getSelectedItem().toString().equalsIgnoreCase("Evento normale")){
-                        e.setPriorità(1);
+                        e.setPriority(1);
                     }else if(prio.getSelectedItem().toString().equalsIgnoreCase("Evento importante")){
-                        e.setPriorità(2);
+                        e.setPriority(2);
 
                     }
               /*  else if(prio.getSelectedItem().toString().equalsIgnoreCase("Evento sponsorizzato")){
@@ -155,10 +155,10 @@ public class EventoActivityAdmin extends Activity {
 
                 }*/
                     else{
-                        e.setPriorità(0);
+                        e.setPriority(0);
                     }
 
-                    db.collection("/eventi").document(e.getDataPubb()).set(e, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    db.collection("/eventi").document(e.getPublishDate()).set(e, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -182,10 +182,10 @@ public class EventoActivityAdmin extends Activity {
         rifiuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                e.setStato("rifiutato");
-                e.setPriorità(0);
+                e.setState("rifiutato");
+                e.setPriority(0);
 
-                db.collection("/eventi").document(e.getDataPubb()).set(e, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                db.collection("/eventi").document(e.getPublishDate()).set(e, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(dialogo!=null)   cancelDialogo(dialogo);
@@ -268,7 +268,7 @@ public class EventoActivityAdmin extends Activity {
         super.onDestroy();
         if(chiamante.equalsIgnoreCase("preferiti")){
             tinyDB.putString("evento","preferiti");
-            Intent intent=new Intent(EventoActivityAdmin.this,MainActivity.class);
+            Intent intent=new Intent(EventoActivityAdmin.this, MainActivity.class);
             startActivity(intent);
         }
 

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Service;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,8 +26,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -43,6 +40,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
+import com.simonepirozzi.techevent.ui.main.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -58,14 +59,13 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.FragmentManager;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class GestioneEvento extends Activity {
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
@@ -77,9 +77,9 @@ public class GestioneEvento extends Activity {
     AutoCompleteTextView citta;
     private Button selectFoto,pubblica,rimuovi;
     String temp="",idPubb;
-    Utente utente;
+    User user;
     String cittaNew,provincia;
-    Evento ev;
+    Event ev;
     TinyDB tinyDB;
 
 
@@ -307,18 +307,18 @@ public class GestioneEvento extends Activity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    List<Evento> eventi=task.getResult().toObjects(Evento.class);
+                    List<Event> eventi=task.getResult().toObjects(Event.class);
                     for(int i=0;i<eventi.size();i++){
                         ev=eventi.get(i);
-                        titolo.setText(ev.getTitolo());
-                        descrizione.setText(ev.getDescrizione());
-                        mDisplayDate.setText(ev.getData());
-                        costo.setText(ev.getCosto());
-                        orarioInizio.setText(ev.getOrarioI());
-                        orarioFine.setText(ev.getOrarioF());
-                        citta.setText(ev.getCitta()+","+ev.getProvincia());
-                        indirizzo.setText(ev.getPosizione());
-                        temp=ev.getFoto();
+                        titolo.setText(ev.getTitle());
+                        descrizione.setText(ev.getDescription());
+                        mDisplayDate.setText(ev.getDate());
+                        costo.setText(ev.getCost());
+                        orarioInizio.setText(ev.getInitalTime());
+                        orarioFine.setText(ev.getFinalTime());
+                        citta.setText(ev.getCity()+","+ev.getProvince());
+                        indirizzo.setText(ev.getPosition());
+                        temp=ev.getPhoto();
                     }
                     if(dialogo!=null)   cancelDialogo(dialogo);
 
@@ -332,7 +332,7 @@ public class GestioneEvento extends Activity {
             @Override
             public void onClick(View v) {
 
-                if(ev.getStato().equalsIgnoreCase("attesa")){
+                if(ev.getState().equalsIgnoreCase("attesa")){
                     if(dialogo!=null)   cancelDialogo(dialogo);
                     dialogo=startDialogo("Non puoi modificare l'evento","L'evento è in fase di attesa. Attendi la sua pubblicazione per modificarlo.",SweetAlertDialog.SUCCESS_TYPE);
                 }else{
@@ -352,7 +352,7 @@ public class GestioneEvento extends Activity {
                                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                     @Override
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                        utente=documentSnapshot.toObject(Utente.class);
+                                        user =documentSnapshot.toObject(User.class);
                                         SimpleDateFormat simpleDateFormat1=new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
                                         String date=simpleDateFormat1.format(new Date());
                                         if(citta.getText().toString().contains(",")){
@@ -368,28 +368,28 @@ public class GestioneEvento extends Activity {
                                             cittaNew=cittaNew.substring(0,cittaNew.indexOf(" "));
                                         }
 
-                                        ev.setTitolo(titolo.getText().toString());
-                                        ev.setData(mDisplayDate.getText().toString());
-                                        ev.setOrarioI(orarioInizio.getText().toString());
-                                        ev.setOrarioF(orarioFine.getText().toString());
-                                        ev.setPosizione(indirizzo.getText().toString());
-                                        ev.setCosto(costo.getText().toString());
-                                        ev.setDescrizione(descrizione.getText().toString());
-                                        ev.setFoto(temp);
-                                        ev.setCitta(cittaNew);
-                                        ev.setProvincia(provincia);
+                                        ev.setTitle(titolo.getText().toString());
+                                        ev.setDate(mDisplayDate.getText().toString());
+                                        ev.setInitalTime(orarioInizio.getText().toString());
+                                        ev.setFinalTime(orarioFine.getText().toString());
+                                        ev.setPosition(indirizzo.getText().toString());
+                                        ev.setCost(costo.getText().toString());
+                                        ev.setDescription(descrizione.getText().toString());
+                                        ev.setPhoto(temp);
+                                        ev.setCity(cittaNew);
+                                        ev.setProvince(provincia);
 
                                         if(dialogo!=null)   cancelDialogo(dialogo);
                                         dialogo=startDialogo("Caricamento","caricamento",SweetAlertDialog.PROGRESS_TYPE);
 
                                         if(isNetwork()){
 
-                                            db.collection("/eventi").document(ev.getDataPubb()).set(ev, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            db.collection("/eventi").document(ev.getPublishDate()).set(ev, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
-                                                            ev.setStato("attesa");
-                                                            db.collection("/eventi").document(ev.getDataPubb()).set(ev,SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            ev.setState("attesa");
+                                                            db.collection("/eventi").document(ev.getPublishDate()).set(ev,SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
                                                                 public void onComplete(@NonNull Task<Void> task) {
                                                                     if(task.isSuccessful()){
@@ -471,7 +471,7 @@ public class GestioneEvento extends Activity {
                         getFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);                        if(dialogo!=null)   cancelDialogo(dialogo);
                         tinyDB.putString("evento","gestioneEvento");
                         finish();
-                        Intent intent=new Intent(GestioneEvento.this,MainActivity.class);
+                        Intent intent=new Intent(GestioneEvento.this, MainActivity.class);
                         startActivity(intent);
                         //getFragmentManager().beginTransaction().replace(R.id.contenitore,new EventiFragment(),"aggiungiEvento").addToBackStack("addEvento").commit();
 
@@ -489,7 +489,7 @@ public class GestioneEvento extends Activity {
                 pDialog.setConfirmButton("Si", new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        String DATA=ev.getDataPubb();
+                        String DATA=ev.getPublishDate();
                         db.collection("/eventi").document(DATA).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

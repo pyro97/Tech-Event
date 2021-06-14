@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -16,17 +15,15 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +33,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -51,12 +47,12 @@ public class GestioneEventiAdmin extends Activity {
     AppCompatImageView img,back;
     TextView data,titolo,luogo,descrizione,organizz,partecip,orario,costo,contatto,tit,fav;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
     EditText email;
     Spinner spinner;
     Button mod,agg;
-    Utente utente;
+    User user;
     LinearLayout gestione,banna,aggiungi;
     ListView listView;
     CustomAdapterEventiAdmin customAdapterEventiAdmin;
@@ -70,21 +66,21 @@ public class GestioneEventiAdmin extends Activity {
          db = FirebaseFirestore.getInstance();
         agg=findViewById(R.id.aggiorna_attesa);
         listView=findViewById(R.id.listViewAdminEventi);
-        customAdapterEventiAdmin=new CustomAdapterEventiAdmin(GestioneEventiAdmin.this,R.layout.list_admin,new ArrayList<Evento>());
+        customAdapterEventiAdmin=new CustomAdapterEventiAdmin(GestioneEventiAdmin.this,R.layout.list_admin,new ArrayList<Event>());
         listView.setAdapter(customAdapterEventiAdmin);
         if(dialogo!=null)   cancelDialogo(dialogo);
         dialogo=startDialogo(GestioneEventiAdmin.this,"","caricamento",SweetAlertDialog.PROGRESS_TYPE);
         db.collection("/eventi").whereEqualTo("stato","attesa").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                List<Evento> eventi=queryDocumentSnapshots.toObjects(Evento.class);
-                Collections.sort(eventi, new Comparator<Evento>() {
+                List<Event> eventi=queryDocumentSnapshots.toObjects(Event.class);
+                Collections.sort(eventi, new Comparator<Event>() {
                     @Override
-                    public int compare(Evento o1, Evento o2) {
+                    public int compare(Event o1, Event o2) {
                         try {
                             SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd:MM:yyyy");
-                            Date data1= simpleDateFormat.parse(o1.getData());
-                            Date data2= simpleDateFormat.parse(o2.getData());
+                            Date data1= simpleDateFormat.parse(o1.getDate());
+                            Date data2= simpleDateFormat.parse(o2.getDate());
                             return data1.compareTo(data2);
                         } catch (ParseException e) {
                             e.printStackTrace();
@@ -94,15 +90,15 @@ public class GestioneEventiAdmin extends Activity {
                 });
 
 
-                Collections.sort(eventi, new Comparator<Evento>() {
+                Collections.sort(eventi, new Comparator<Event>() {
                     @Override
-                    public int compare(Evento o1, Evento o2) {
+                    public int compare(Event o1, Event o2) {
                         try {
 
-                            if(o1.getData().equalsIgnoreCase(o2.getData())){
-                                if(o1.getPriorità()>o2.getPriorità()){
+                            if(o1.getDate().equalsIgnoreCase(o2.getDate())){
+                                if(o1.getPriority()>o2.getPriority()){
                                     return -1;
-                                }else if(o1.getPriorità()<o2.getPriorità()){
+                                }else if(o1.getPriority()<o2.getPriority()){
                                     return 1;
                                 }else return 0;
                             }else   return 0;
@@ -117,7 +113,7 @@ public class GestioneEventiAdmin extends Activity {
                 });
 
 
-                for(Evento u:eventi){
+                for(Event u:eventi){
                    customAdapterEventiAdmin.add(u);
                 }
                 if(dialogo!=null)   cancelDialogo(dialogo);

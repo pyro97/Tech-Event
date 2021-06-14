@@ -1,6 +1,5 @@
 package com.simonepirozzi.techevent;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.Service;
@@ -13,16 +12,13 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,11 +31,11 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
+import com.simonepirozzi.techevent.ui.login.LoginActivity;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +50,7 @@ public class ModificaAccountFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
-    private Utente utente;
+    private User user;
     EditText nome,cognome,mail;
     AutoCompleteTextView citta;
     LinearLayout profilo,categorie;
@@ -80,7 +76,7 @@ public class ModificaAccountFragment extends Fragment {
         cognome=view.findViewById(R.id.Mod_Sur);
         salva=view.findViewById(R.id.salva_button);
         elimina=view.findViewById(R.id.elimina_button);
-        utente=new Utente();
+        user =new User();
         tinyDB=new TinyDB(view.getContext());
 
 
@@ -94,9 +90,9 @@ public class ModificaAccountFragment extends Fragment {
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        utente=documentSnapshot.toObject(Utente.class);
-                        nome.setText(utente.getNome());
-                        cognome.setText(utente.getCognome());
+                        user =documentSnapshot.toObject(User.class);
+                        nome.setText(user.getName());
+                        cognome.setText(user.getSurname());
                         if(dialogo!=null)   cancelDialogo(dialogo);
 
 
@@ -125,11 +121,11 @@ public class ModificaAccountFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if(task.isSuccessful()){
-                                        Utente utente1= task.getResult().toObject(Utente.class);
-                                        utente1.setNome(nome.getText().toString());
-                                        utente1.setCognome(cognome.getText().toString());
+                                        User user1 = task.getResult().toObject(User.class);
+                                        user1.setName(nome.getText().toString());
+                                        user1.setSurname(cognome.getText().toString());
                                         if(isNetwork(view.getContext())){
-                                            db.collection("/utenti").document(currentUser.getEmail()).set(utente1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            db.collection("/utenti").document(currentUser.getEmail()).set(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
@@ -230,10 +226,10 @@ public class ModificaAccountFragment extends Fragment {
                                                     @Override
                                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                         if(task.isSuccessful()){
-                                                            List<Evento> eliminare=task.getResult().toObjects(Evento.class);
+                                                            List<Event> eliminare=task.getResult().toObjects(Event.class);
 
                                                             for(int i=0;i<eliminare.size();i++){
-                                                                db.collection("/eventi").document(eliminare.get(i).getDataPubb()).delete();
+                                                                db.collection("/eventi").document(eliminare.get(i).getPublishDate()).delete();
                                                             }
 
                                                             db.collection("/utenti").document(currentUser.getEmail()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -242,7 +238,7 @@ public class ModificaAccountFragment extends Fragment {
                                                                     currentUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                         @Override
                                                                         public void onComplete(@NonNull Task<Void> task) {
-                                                                            Intent intent=new Intent(context,Login.class);
+                                                                            Intent intent=new Intent(context, LoginActivity.class);
                                                                             startActivity(intent);
                                                                             getActivity().finish();
                                                                         }

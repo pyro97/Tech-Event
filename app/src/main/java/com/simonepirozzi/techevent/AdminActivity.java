@@ -4,35 +4,27 @@ import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -47,9 +39,9 @@ public class AdminActivity extends Activity {
     AppCompatImageView img,back;
     TextView data,titolo,luogo,descrizione,organizz,partecip,orario,costo,contatto,tit,fav;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
-    Utente utente;
+    User user;
     LinearLayout gestione,banna,aggiungi;
 
 
@@ -90,9 +82,9 @@ public class AdminActivity extends Activity {
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        utente=documentSnapshot.toObject(Utente.class);
+                        user =documentSnapshot.toObject(User.class);
 
-                        if(utente.getRuolo().equalsIgnoreCase("admin")){
+                        if(user.getRole().equalsIgnoreCase("admin")){
                             TextView textView=new TextView(AdminActivity.this);
                             textView.setText("Gestione dei ruoli di amministrazione");
                             textView.setGravity(Gravity.LEFT);

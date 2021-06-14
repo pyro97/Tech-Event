@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.simonepirozzi.techevent.data.db.model.Event;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,16 +26,16 @@ import java.util.List;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class CustomAdapterPubblicati extends ArrayAdapter<Evento> {
+public class CustomAdapterPubblicati extends ArrayAdapter<Event> {
     private int resource;
     private LayoutInflater inflater;
     private FirebaseFirestore db;
 
-    Evento evento;
+    Event event;
     String giorno,mese;
     int numero;
 
-    public CustomAdapterPubblicati(Context context, int resourceId, List<Evento> objects) {
+    public CustomAdapterPubblicati(Context context, int resourceId, List<Event> objects) {
             super(context, resourceId, objects);
             resource = resourceId;
             inflater = LayoutInflater.from(context);
@@ -46,7 +47,7 @@ public class CustomAdapterPubblicati extends ArrayAdapter<Evento> {
     			v = inflater.inflate(R.layout.list_element_pubblicati, null);
     		}
     		
-             evento = getItem(position);
+             event = getItem(position);
        
 
             final TextView titolo,data,luogo;
@@ -63,16 +64,16 @@ public class CustomAdapterPubblicati extends ArrayAdapter<Evento> {
             stato=v.findViewById(R.id.statoEvento);
 
 
-            if(evento.getStato().equalsIgnoreCase("pubblicato")){
+            if(event.getState().equalsIgnoreCase("pubblicato")){
                stato.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
                // stato.setBackground(getContext().getResources().getDrawable(R.drawable.arrow));
 
             }
-            else if(evento.getStato().equalsIgnoreCase("attesa")){
+            else if(event.getState().equalsIgnoreCase("attesa")){
                 stato.setBackgroundTintList(ColorStateList.valueOf(Color.YELLOW));
 
             }
-            else if(evento.getStato().equalsIgnoreCase("rifiutato")){
+            else if(event.getState().equalsIgnoreCase("rifiutato")){
                 stato.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
 
             }
@@ -80,7 +81,7 @@ public class CustomAdapterPubblicati extends ArrayAdapter<Evento> {
 
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd:MM:yyyy");
         try {
-            Date date=simpleDateFormat.parse(evento.getData());
+            Date date=simpleDateFormat.parse(event.getDate());
             Calendar calendar=Calendar.getInstance();
             calendar.setTime(date);
             int day= calendar.get(Calendar.DAY_OF_WEEK);
@@ -115,12 +116,12 @@ public class CustomAdapterPubblicati extends ArrayAdapter<Evento> {
             e.printStackTrace();
         }
 
-        titolo.setText(evento.getTitolo());
-         data.setText(giorno+", "+numero+" "+mese+" - "+evento.getOrarioI());
-        luogo.setText(evento.getCitta()+","+evento.getProvincia()+" - "+evento.getPosizione());
-         if(evento.getFoto().length()>0){
+        titolo.setText(event.getTitle());
+         data.setText(giorno+", "+numero+" "+mese+" - "+ event.getInitalTime());
+        luogo.setText(event.getCity()+","+ event.getProvince()+" - "+ event.getPosition());
+         if(event.getPhoto().length()>0){
              try {
-                 byte [] encodeByte= Base64.decode(evento.getFoto(),Base64.DEFAULT);
+                 byte [] encodeByte= Base64.decode(event.getPhoto(),Base64.DEFAULT);
                  Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                  imageView.setImageBitmap(bitmap);
 
@@ -138,10 +139,10 @@ public class CustomAdapterPubblicati extends ArrayAdapter<Evento> {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                evento = getItem(position);
+                event = getItem(position);
 
                 Intent intent=new Intent(v.getContext(),GestioneEvento.class);
-                intent.putExtra("idPubb",evento.getId());
+                intent.putExtra("idPubb", event.getId());
                 v.getContext().startActivity(intent);
             }
         });

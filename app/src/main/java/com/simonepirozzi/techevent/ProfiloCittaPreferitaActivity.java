@@ -2,7 +2,6 @@ package com.simonepirozzi.techevent;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -53,7 +53,7 @@ public class ProfiloCittaPreferitaActivity extends Activity {
     String cittaNew;
 LinearLayout lin;
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
@@ -77,7 +77,7 @@ LinearLayout lin;
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
-                    String cittaEsistente=task.getResult().toObject(Utente.class).getCittà();
+                    String cittaEsistente=task.getResult().toObject(User.class).getCity();
                     cittaScelta.setText(cittaEsistente);
                 }
             }
@@ -128,10 +128,10 @@ LinearLayout lin;
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                 if(task.isSuccessful()){
-                                    Utente utente=task.getResult().toObject(Utente.class);
-                                    utente.setCittà(cittaNew);
-                                    utente.setProvincia(provincia);
-                                    db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).set(utente, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    User user =task.getResult().toObject(User.class);
+                                    user.setCity(cittaNew);
+                                    user.setProvince(provincia);
+                                    db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(dialogo!=null)   cancelDialogo(dialogo);

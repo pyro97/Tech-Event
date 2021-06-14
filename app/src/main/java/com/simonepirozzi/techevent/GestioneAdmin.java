@@ -3,13 +3,10 @@ package com.simonepirozzi.techevent;
 import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +27,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,19 +42,19 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class GestioneAdmin extends Activity {
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
     AppCompatImageView img,back;
     TextView data,titolo,luogo,descrizione,organizz,partecip,orario,costo,contatto,tit,fav;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
     EditText email;
     Spinner spinner;
     Button mod;
-    Utente utente;
+    User user;
     LinearLayout gestione,banna,aggiungi;
     ListView listView;
     CustomAdapterListaAdmin customAdapterListaAdmin;
@@ -71,16 +71,16 @@ public class GestioneAdmin extends Activity {
         spinner=findViewById(R.id.spinner_gest_admin);
         mod=findViewById(R.id.modifica_ruolo);
         listView=findViewById(R.id.listViewAdmin);
-        customAdapterListaAdmin=new CustomAdapterListaAdmin(GestioneAdmin.this,R.layout.list_element,new ArrayList<Utente>());
+        customAdapterListaAdmin=new CustomAdapterListaAdmin(GestioneAdmin.this,R.layout.list_element,new ArrayList<User>());
         listView.setAdapter(customAdapterListaAdmin);
         if(dialogo!=null)   cancelDialogo(dialogo);
         dialogo=startDialogo(GestioneAdmin.this,"","caricamento",SweetAlertDialog.PROGRESS_TYPE);
         db.collection("/utenti").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                List<Utente> utenti=queryDocumentSnapshots.toObjects(Utente.class);
-                for(Utente u:utenti){
-                    if(u.getRuolo().equalsIgnoreCase("admin") || u.getRuolo().equalsIgnoreCase("moderatore")){
+                List<User> utenti=queryDocumentSnapshots.toObjects(User.class);
+                for(User u:utenti){
+                    if(u.getRole().equalsIgnoreCase("admin") || u.getRole().equalsIgnoreCase("moderatore")){
                         customAdapterListaAdmin.add(u);
                     }
                 }
@@ -106,14 +106,14 @@ public class GestioneAdmin extends Activity {
                         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                utente=documentSnapshot.toObject(Utente.class);
-                                if(utente!=null){
-                                    if(utente.getRuolo().equalsIgnoreCase(spinner.getSelectedItem().toString())){
+                                user =documentSnapshot.toObject(User.class);
+                                if(user !=null){
+                                    if(user.getRole().equalsIgnoreCase(spinner.getSelectedItem().toString())){
                                         if(dialogo!=null)   cancelDialogo(dialogo);
                                         dialogo=startDialogo(GestioneAdmin.this,"Attenzione","Ruolo già associato",SweetAlertDialog.ERROR_TYPE);
                                     }else{
-                                        utente.setRuolo(spinner.getSelectedItem().toString());
-                                        docRef.set(utente, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        user.setRole(spinner.getSelectedItem().toString());
+                                        docRef.set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(dialogo!=null)   cancelDialogo(dialogo);

@@ -1,61 +1,31 @@
 package com.simonepirozzi.techevent;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.app.Service;
-import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.OpenableColumns;
-import android.text.InputType;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -103,7 +73,7 @@ public class EventiFragment extends Fragment {
         nuovo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.contenitore,new AggiungiEventoFragment(),"aggiungiEvento").addToBackStack("addEvent").commit();
+                getFragmentManager().beginTransaction().replace(R.id.frame_container,new AggiungiEventoFragment(),"aggiungiEvento").addToBackStack("addEvent").commit();
 
             }
         });
@@ -127,7 +97,7 @@ public class EventiFragment extends Fragment {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         if(dialogo!=null)   cancelDialogo(dialogo);
-                        getFragmentManager().beginTransaction().replace(R.id.contenitore,new EventiFragment(),"aggiungiEvento").addToBackStack("addEvento").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.frame_container,new EventiFragment(),"aggiungiEvento").addToBackStack("addEvento").commit();
 
                     }
                 });

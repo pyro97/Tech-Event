@@ -3,10 +3,6 @@ package com.simonepirozzi.techevent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,25 +12,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.simonepirozzi.techevent.data.db.model.User;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class CustomAdapterListaAdmin extends ArrayAdapter<Utente> {
+public class CustomAdapterListaAdmin extends ArrayAdapter<User> {
     private int resource;
     private LayoutInflater inflater;
     private FirebaseFirestore db;
 
-    Utente utente;
+    User user;
     String giorno,mese;
     int numero;
 
-    public CustomAdapterListaAdmin(Context context, int resourceId, List<Utente> objects) {
+    public CustomAdapterListaAdmin(Context context, int resourceId, List<User> objects) {
             super(context, resourceId, objects);
             resource = resourceId;
             inflater = LayoutInflater.from(context);
@@ -46,7 +39,7 @@ public class CustomAdapterListaAdmin extends ArrayAdapter<Utente> {
     			v = inflater.inflate(R.layout.list_admin, null);
     		}
     		
-             utente = getItem(position);
+             user = getItem(position);
        
 
             final TextView mail,ruolo,luogo;
@@ -62,8 +55,8 @@ public class CustomAdapterListaAdmin extends ArrayAdapter<Utente> {
 
 
 
-        mail.setText(utente.getMail());
-         ruolo.setText(utente.getRuolo());
+        mail.setText(user.getMail());
+         ruolo.setText(user.getRole());
 
          mail.setOnClickListener(new View.OnClickListener() {
              @Override

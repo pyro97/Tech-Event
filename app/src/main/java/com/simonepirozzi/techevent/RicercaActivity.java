@@ -1,16 +1,10 @@
 package com.simonepirozzi.techevent;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Base64;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,8 +15,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -40,18 +35,18 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class RicercaActivity extends Activity {
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
     AppCompatImageView img,back;
     TextView data,titolo,luogo,descrizione,organizz,partecip,cat,orario,costo,contatto,tit,fav;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
     ListView listView;
-    List<Evento> listaFinale;
-    Utente utente;
+    List<Event> listaFinale;
+    User user;
     CustomAdapterRicerca customAdapter;
 
     @Override
@@ -64,7 +59,7 @@ public class RicercaActivity extends Activity {
         tinyDB=new TinyDB(RicercaActivity.this);
         if(dialogo!=null)   cancelDialogo(dialogo);
         dialogo=startDialogo(RicercaActivity.this,"","caricamento",SweetAlertDialog.PROGRESS_TYPE);
-        customAdapter=new CustomAdapterRicerca(RicercaActivity.this,R.layout.list_element_ricerca,new ArrayList<Evento>());
+        customAdapter=new CustomAdapterRicerca(RicercaActivity.this,R.layout.list_element_ricerca,new ArrayList<Event>());
         listView=findViewById(R.id.listViewRicerca);
         listView.setAdapter(customAdapter);
 
@@ -73,25 +68,25 @@ public class RicercaActivity extends Activity {
         listaFinale=new ArrayList<>();
 
 
-        for(int i=0;i<tinyDB.getListObject("lista",Evento.class).size();i++){
-            Evento e= (Evento) tinyDB.getListObject("lista",Evento.class).get(i);
+        for(int i = 0; i<tinyDB.getListObject("lista", Event.class).size(); i++){
+            Event e= (Event) tinyDB.getListObject("lista", Event.class).get(i);
             listaFinale.add(e);
         }
 
         db.collection("/utenti").document(mAuth.getCurrentUser().getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                utente=task.getResult().toObject(Utente.class);
+                user =task.getResult().toObject(User.class);
             }
         });
 
-        Collections.sort(listaFinale, new Comparator<Evento>() {
+        Collections.sort(listaFinale, new Comparator<Event>() {
             @Override
-            public int compare(Evento o1, Evento o2) {
+            public int compare(Event o1, Event o2) {
                 try {
                     SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd:MM:yyyy");
-                    Date data1= simpleDateFormat.parse(o1.getData());
-                    Date data2= simpleDateFormat.parse(o2.getData());
+                    Date data1= simpleDateFormat.parse(o1.getDate());
+                    Date data2= simpleDateFormat.parse(o2.getDate());
                     return data1.compareTo(data2);
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -101,15 +96,15 @@ public class RicercaActivity extends Activity {
         });
 
 
-        Collections.sort(listaFinale, new Comparator<Evento>() {
+        Collections.sort(listaFinale, new Comparator<Event>() {
             @Override
-            public int compare(Evento o1, Evento o2) {
+            public int compare(Event o1, Event o2) {
                 try {
 
-                    if(o1.getData().equalsIgnoreCase(o2.getData())){
-                        if(o1.getPriorità()>o2.getPriorità()){
+                    if(o1.getDate().equalsIgnoreCase(o2.getDate())){
+                        if(o1.getPriority()>o2.getPriority()){
                             return -1;
-                        }else if(o1.getPriorità()<o2.getPriorità()){
+                        }else if(o1.getPriority()<o2.getPriority()){
                             return 1;
                         }else return 0;
                     }else   return 0;
@@ -123,24 +118,24 @@ public class RicercaActivity extends Activity {
             }
         });
 
-        Collections.sort(listaFinale, new Comparator<Evento>() {
+        Collections.sort(listaFinale, new Comparator<Event>() {
             @Override
-            public int compare(Evento o1, Evento o2) {
+            public int compare(Event o1, Event o2) {
                 try {
 
-                    if(o1.getData().equalsIgnoreCase(o2.getData())
-                            && o1.getPriorità()==o2.getPriorità()){
-                        if(o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                && o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                    if(o1.getDate().equalsIgnoreCase(o2.getDate())
+                            && o1.getPriority()==o2.getPriority()){
+                        if(o1.getCity().equalsIgnoreCase(user.getCity())
+                                && o2.getCity().equalsIgnoreCase(user.getCity())){
                             return 0;
-                        }else if(!o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                && !o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                        }else if(!o1.getCity().equalsIgnoreCase(user.getCity())
+                                && !o2.getCity().equalsIgnoreCase(user.getCity())){
                             return 0;
-                        }else if(o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                && !o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                        }else if(o1.getCity().equalsIgnoreCase(user.getCity())
+                                && !o2.getCity().equalsIgnoreCase(user.getCity())){
                             return -1;
-                        }else if(!o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                && o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                        }else if(!o1.getCity().equalsIgnoreCase(user.getCity())
+                                && o2.getCity().equalsIgnoreCase(user.getCity())){
                             return -1;
                         }
 
@@ -166,7 +161,7 @@ public class RicercaActivity extends Activity {
             customAdapter.add(listaFinale.get(j));
         }
 
-        if(tinyDB.getListObject("lista",Evento.class).size()==0){
+        if(tinyDB.getListObject("lista", Event.class).size()==0){
             if(dialogo!=null)   cancelDialogo(dialogo);
             dialogo=startDialogo(RicercaActivity.this,"Nessun evento trovato!","",SweetAlertDialog.WARNING_TYPE);
 

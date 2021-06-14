@@ -1,6 +1,5 @@
 package com.simonepirozzi.techevent;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.Service;
 import android.content.Context;
@@ -19,9 +18,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +34,13 @@ public class EventiPubblicatiFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
-    private Utente utente;
+    private User user;
     SweetAlertDialog dialogo;
     ListView listView;
     CustomAdapterPubblicati customAdapter;
-    List<Evento> lista;
-    List<Evento> listaprova;
-    List<Evento> listaFinale;
+    List<Event> lista;
+    List<Event> listaprova;
+    List<Event> listaFinale;
 
     TextView titTEXT;
 
@@ -61,7 +61,7 @@ public class EventiPubblicatiFragment extends Fragment {
         listaprova=new ArrayList<>();
         listaFinale=new ArrayList<>();
 
-        customAdapter=new CustomAdapterPubblicati(view.getContext(),R.layout.list_element_pubblicati,new ArrayList<Evento>());
+        customAdapter=new CustomAdapterPubblicati(view.getContext(),R.layout.list_element_pubblicati,new ArrayList<Event>());
 
         listView=view.findViewById(R.id.listViewPubblicati);
         listView.setAdapter(customAdapter);
@@ -82,15 +82,15 @@ public class EventiPubblicatiFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    List<Evento> eventoArrayList=task.getResult().toObjects(Evento.class);
+                    List<Event> eventArrayList =task.getResult().toObjects(Event.class);
 
 
 
-                    for(int i=0;i<eventoArrayList.size();i++){
-                        customAdapter.add(eventoArrayList.get(i));
+                    for(int i = 0; i< eventArrayList.size(); i++){
+                        customAdapter.add(eventArrayList.get(i));
                     }
 
-                    if(eventoArrayList.size()==0){
+                    if(eventArrayList.size()==0){
                         if(dialogo!=null)   cancelDialogo(dialogo);
                         dialogo=startDialogo(getView().getContext(),"Non hai pubblicato ancora nessun evento!","",SweetAlertDialog.WARNING_TYPE);
                     }else{

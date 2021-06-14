@@ -1,25 +1,16 @@
 package com.simonepirozzi.techevent;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.app.Service;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.OpenableColumns;
-import android.text.InputType;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,26 +22,21 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -77,7 +63,7 @@ public class RicercaFragment extends Fragment {
     AutoCompleteTextView citta;
     private Button ricerca;
     String temp="";
-    Utente utente;
+    User user;
     String cittaNew;
     String dataScelta,nomeScelto,luogoScelto,catScelta,periodo;
     TinyDB tinyDB;
@@ -334,18 +320,18 @@ public class RicercaFragment extends Fragment {
                                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                    List<Event> lista=task.getResult().toObjects(Event.class);
                                     ArrayList<Object> lista2=new ArrayList<>();
 
                                     for(int i=0;i<lista.size();i++) {
                                         SimpleDateFormat simpleDateFormat1=new SimpleDateFormat("dd:MM:yyyy");
                                         try {
                                             Date dataricerca=simpleDateFormat1.parse(dataScelta);
-                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getData());
+                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getDate());
 
                                             if(trovata.before(dataricerca)){
-                                                if(lista.get(i).getTitolo().toLowerCase().contains(nome.getText().toString().toLowerCase())){
-                                                    if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                                if(lista.get(i).getTitle().toLowerCase().contains(nome.getText().toString().toLowerCase())){
+                                                    if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                         lista2.add(lista.get(i));
 
                                                     }
@@ -381,14 +367,14 @@ public class RicercaFragment extends Fragment {
                                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         ArrayList<Object> lista2=new ArrayList<>();
 
                                         Log.d("cazzoE",lista.size()+"");
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getTitolo().toLowerCase().contains(nome.getText().toString().toLowerCase())){
-                                                if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getTitle().toLowerCase().contains(nome.getText().toString().toLowerCase())){
+                                                if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                     lista2.add(lista.get(i));
 
                                                 }
@@ -410,15 +396,15 @@ public class RicercaFragment extends Fragment {
                                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         ArrayList<Object> lista2=new ArrayList<>();
 
 
                                         Log.d("cazzoE",lista.size()+"");
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getTitolo().toLowerCase().contains(nome.getText().toString().toLowerCase())){
-                                                if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getTitle().toLowerCase().contains(nome.getText().toString().toLowerCase())){
+                                                if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                     lista2.add(lista.get(i));
 
                                                 }
@@ -448,18 +434,18 @@ public class RicercaFragment extends Fragment {
                                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                    List<Event> lista=task.getResult().toObjects(Event.class);
                                     ArrayList<Object> lista2=new ArrayList<>();
 
                                     for(int i=0;i<lista.size();i++) {
                                         SimpleDateFormat simpleDateFormat1=new SimpleDateFormat("dd:MM:yyyy");
                                         try {
                                             Date dataricerca=simpleDateFormat1.parse(dataScelta);
-                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getData());
+                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getDate());
 
                                             if(trovata.before(dataricerca)){
-                                                if(lista.get(i).getTitolo().toLowerCase().contains(nome.getText().toString().toLowerCase())){
-                                                    if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                                if(lista.get(i).getTitle().toLowerCase().contains(nome.getText().toString().toLowerCase())){
+                                                    if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                         lista2.add(lista.get(i));
 
                                                     }
@@ -494,14 +480,14 @@ public class RicercaFragment extends Fragment {
                                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         ArrayList<Object> lista2=new ArrayList<>();
 
                                         Log.d("cazzoE",lista.size()+"");
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getTitolo().toLowerCase().contains(nome.getText().toString().toLowerCase())){
-                                                if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getTitle().toLowerCase().contains(nome.getText().toString().toLowerCase())){
+                                                if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                     lista2.add(lista.get(i));
 
                                                 }
@@ -523,16 +509,16 @@ public class RicercaFragment extends Fragment {
                                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         ArrayList<Object> lista2=new ArrayList<>();
 
 
 
                                         for(int i=0;i<lista.size();i++) {
 
-                                            if(lista.get(i).getTitolo().toLowerCase().contains(nome.getText().toString().toLowerCase())){
+                                            if(lista.get(i).getTitle().toLowerCase().contains(nome.getText().toString().toLowerCase())){
 
-                                                if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                                if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                     lista2.add(lista.get(i));
 
                                                 }
@@ -568,17 +554,17 @@ public class RicercaFragment extends Fragment {
                                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                    List<Event> lista=task.getResult().toObjects(Event.class);
                                     ArrayList<Object> lista2=new ArrayList<>();
 
                                     for(int i=0;i<lista.size();i++) {
                                         SimpleDateFormat simpleDateFormat1=new SimpleDateFormat("dd:MM:yyyy");
                                         try {
                                             Date dataricerca=simpleDateFormat1.parse(dataScelta);
-                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getData());
+                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getDate());
 
                                             if(trovata.before(dataricerca)){
-                                                if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                                if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                     lista2.add(lista.get(i));
 
                                                 }
@@ -612,13 +598,13 @@ public class RicercaFragment extends Fragment {
                                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         Log.d("cazzoE",lista.size()+"");
 
                                         ArrayList<Object> objects=new ArrayList<>();
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                 objects.add(lista.get(i));
 
                                             }                                        }
@@ -637,13 +623,13 @@ public class RicercaFragment extends Fragment {
                                         .whereEqualTo("citta",cittaNew).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         Log.d("cazzoE",lista.size()+"");
                                         ArrayList<Object> objects=new ArrayList<>();
 
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                 objects.add(lista.get(i));
 
                                             }
@@ -671,17 +657,17 @@ public class RicercaFragment extends Fragment {
                                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                    List<Event> lista=task.getResult().toObjects(Event.class);
                                     ArrayList<Object> lista2=new ArrayList<>();
 
                                     for(int i=0;i<lista.size();i++) {
                                         SimpleDateFormat simpleDateFormat1=new SimpleDateFormat("dd:MM:yyyy");
                                         try {
                                             Date dataricerca=simpleDateFormat1.parse(dataScelta);
-                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getData());
+                                            Date trovata=simpleDateFormat1.parse(lista.get(i).getDate());
 
                                             if(trovata.before(dataricerca)){
-                                                if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                                if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                     lista2.add(lista.get(i));
 
                                                 }
@@ -713,11 +699,11 @@ public class RicercaFragment extends Fragment {
                                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         ArrayList<Object> objects=new ArrayList<>();
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                 objects.add(lista.get(i));
 
                                             }
@@ -736,13 +722,13 @@ public class RicercaFragment extends Fragment {
                                 collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Evento> lista=task.getResult().toObjects(Evento.class);
+                                        List<Event> lista=task.getResult().toObjects(Event.class);
                                         Log.d("cazzoE",lista.size()+"");
 
                                         ArrayList<Object> objects=new ArrayList<>();
 
                                         for(int i=0;i<lista.size();i++) {
-                                            if(lista.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                            if(lista.get(i).getState().equalsIgnoreCase("pubblicato")){
                                                 objects.add(lista.get(i));
 
                                             }
@@ -790,7 +776,7 @@ public class RicercaFragment extends Fragment {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         if(dialogo!=null)   cancelDialogo(dialogo);
-                        getFragmentManager().beginTransaction().replace(R.id.contenitore,new RicercaFragment(),"aggiungiEvento").addToBackStack("addEvento").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.frame_container,new RicercaFragment(),"aggiungiEvento").addToBackStack("addEvento").commit();
 
                     }
                 });

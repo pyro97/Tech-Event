@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:text="Registrazione"
+        android:text="@string/sign_in_title"
         android:textColor="@color/fui_bgGitHub"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:text="Inserisci i tuoi dati personali 1/2"
+        android:text="@string/sign_in_desc"
         android:textColor="@color/fui_bgFacebook"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -52,13 +52,12 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_action_person_black"
                 android:ems="10"
-                android:hint="Nome"
+                android:hint="@string/name_sign_in"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textColorHint="@color/browser_actions_title_color"
                 android:textSize="16dp" />
-
 
 
         </LinearLayout>
@@ -78,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_action_person_black"
                 android:ems="10"
-                android:hint="Cognome"
+                android:hint="@string/surname_sign_in"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -104,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_action_mail_black"
                 android:ems="10"
-                android:hint="E-mail"
+                android:hint="@string/mail_hint"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -128,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_action_pass_black"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/password_hint"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -139,7 +138,7 @@
 
 
         <Button
-            android:id="@+id/registrati_button"
+            android:id="@+id/signinButton"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -147,14 +146,14 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_blue1"
-            android:text="Procedi"
+            android:text="@string/sign_in_button"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="18sp" />
 
 
         <TextView
-            android:id="@+id/link_logga"
+            android:id="@+id/link_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -163,7 +162,7 @@
             android:fontFamily="sans-serif"
             android:freezesText="false"
             android:linksClickable="true"
-            android:text="Hai già un account?"
+            android:text="@string/login_sign_in"
             android:textAllCaps="false"
             android:textColor="@color/fui_bgFacebook"
             android:textSize="16sp"

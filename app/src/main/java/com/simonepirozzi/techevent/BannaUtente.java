@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -27,6 +26,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,19 +41,19 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class BannaUtente extends Activity {
     private FirebaseAuth mAuth;
-   private FirebaseUser user;
+   private FirebaseUser firebaseUser;
     private DatabaseReference mDatabase;
     private FirebaseFirestore db;
     SweetAlertDialog dialogo;
     AppCompatImageView img,back;
     TextView data,titolo,luogo,descrizione,organizz,partecip,orario,costo,contatto,tit,fav;
     String id,chiamante;
-    Evento e;
+    Event e;
     TinyDB tinyDB;
     EditText email;
     Spinner spinner;
     Button mod,rei;
-    Utente utente;
+    User user;
     LinearLayout gestione,banna,aggiungi;
     ListView listView;
     CustomAdapterListaAdmin customAdapterListaAdmin;
@@ -69,16 +71,16 @@ public class BannaUtente extends Activity {
         mod=findViewById(R.id.banna);
         rei=findViewById(R.id.rein);
         listaBannati=findViewById(R.id.listViewBannati);
-        customAdapterListaAdmin=new CustomAdapterListaAdmin(BannaUtente.this,R.layout.list_element,new ArrayList<Utente>());
+        customAdapterListaAdmin=new CustomAdapterListaAdmin(BannaUtente.this,R.layout.list_element,new ArrayList<User>());
         listaBannati.setAdapter(customAdapterListaAdmin);
         if(dialogo!=null)   cancelDialogo(dialogo);
         dialogo=startDialogo(BannaUtente.this,"","caricamento",SweetAlertDialog.PROGRESS_TYPE);
         db.collection("/utenti").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                List<Utente> utenti=queryDocumentSnapshots.toObjects(Utente.class);
-                for(Utente u:utenti){
-                    if(u.getRuolo().equalsIgnoreCase("bannato")){
+                List<User> utenti=queryDocumentSnapshots.toObjects(User.class);
+                for(User u:utenti){
+                    if(u.getRole().equalsIgnoreCase("bannato")){
                         customAdapterListaAdmin.add(u);
                     }
                 }
@@ -96,29 +98,29 @@ public class BannaUtente extends Activity {
                         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                utente=documentSnapshot.toObject(Utente.class);
-                                if(utente!=null){
-                                    if(utente.getRuolo().equalsIgnoreCase("bannato")){
+                                user =documentSnapshot.toObject(User.class);
+                                if(user !=null){
+                                    if(user.getRole().equalsIgnoreCase("bannato")){
                                         if(dialogo!=null)   cancelDialogo(dialogo);
                                         dialogo=startDialogo(BannaUtente.this,"Attenzione","L'utente è già stato bannato",SweetAlertDialog.ERROR_TYPE);
                                     }else{
 
-                                        if(utente.getRuolo().equalsIgnoreCase("utente")){
-                                            utente.setRuolo("bannato");
-                                            db.collection("/eventi").whereEqualTo("email",utente.getMail()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                        if(user.getRole().equalsIgnoreCase("utente")){
+                                            user.setRole("bannato");
+                                            db.collection("/eventi").whereEqualTo("email", user.getMail()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                                 @Override
                                                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                                    List<Evento> eventoList=queryDocumentSnapshots.toObjects(Evento.class);
-                                                    if(eventoList!=null){
-                                                        for(Evento e:eventoList){
-                                                            e.setPriorità(0);
-                                                            e.setStato("rifiutato");
-                                                            db.collection("/eventi").document(e.getDataPubb()).set(e,SetOptions.merge());
+                                                    List<Event> eventList =queryDocumentSnapshots.toObjects(Event.class);
+                                                    if(eventList !=null){
+                                                        for(Event e: eventList){
+                                                            e.setPriority(0);
+                                                            e.setState("rifiutato");
+                                                            db.collection("/eventi").document(e.getPublishDate()).set(e,SetOptions.merge());
                                                         }
                                                     }
                                                 }
                                             });
-                                            docRef.set(utente, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            docRef.set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(dialogo!=null)   cancelDialogo(dialogo);
@@ -166,14 +168,14 @@ public class BannaUtente extends Activity {
                         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                utente=documentSnapshot.toObject(Utente.class);
-                                if(utente!=null){
-                                    if(!utente.getRuolo().equalsIgnoreCase("bannato")){
+                                user =documentSnapshot.toObject(User.class);
+                                if(user !=null){
+                                    if(!user.getRole().equalsIgnoreCase("bannato")){
                                         if(dialogo!=null)   cancelDialogo(dialogo);
                                         dialogo=startDialogo(BannaUtente.this,"Attenzione","L'utente non è bannato",SweetAlertDialog.ERROR_TYPE);
                                     }else{
-                                        utente.setRuolo("utente");
-                                        docRef.set(utente, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        user.setRole("utente");
+                                        docRef.set(user, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(dialogo!=null)   cancelDialogo(dialogo);

@@ -1,4 +1,4 @@
-package com.simonepirozzi.techevent;
+package com.simonepirozzi.techevent.data.db;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -3,7 +3,6 @@ package com.simonepirozzi.techevent;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 
 import android.app.Service;
 import android.app.TimePickerDialog;
@@ -31,12 +30,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.NumberPicker;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -47,13 +41,13 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -78,7 +72,7 @@ public class AggiungiEventoFragment extends Fragment {
     AutoCompleteTextView citta;
     private Button selectFoto,pubblica;
     String temp="";
-    Utente utente;
+    User user;
     String cittaNew,provincia;
 
 
@@ -319,7 +313,7 @@ public class AggiungiEventoFragment extends Fragment {
                             docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                    utente=documentSnapshot.toObject(Utente.class);
+                                    user =documentSnapshot.toObject(User.class);
                                     SimpleDateFormat simpleDateFormat1=new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
                                     String date=simpleDateFormat1.format(new Date());
 
@@ -334,11 +328,11 @@ public class AggiungiEventoFragment extends Fragment {
                                     }
 
 
-                                    Evento e=new Evento(utente.getMail(),titolo.getText().toString()
+                                    Event e=new Event(user.getMail(),titolo.getText().toString()
                                             ,mDisplayDate.getText().toString(),orarioInizio.getText().toString()
                                             ,orarioFine.getText().toString(),indirizzo.getText().toString()
-                                            ,costo.getText().toString(),utente.getNome()+" "+utente.getCognome()
-                                            ,cittaNew,provincia,temp,0,date,descrizione.getText().toString(),"","attesa");
+                                            ,costo.getText().toString(), user.getName()+" "+ user.getSurname()
+                                            ,cittaNew,temp,date,descrizione.getText().toString(),"attesa",provincia,0);
                                     if(dialogo!=null)   cancelDialogo(dialogo);
                                     dialogo=startDialogo(view.getContext(),"Caricamento","caricamento",SweetAlertDialog.PROGRESS_TYPE);
 

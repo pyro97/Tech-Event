@@ -1,17 +1,14 @@
-package com.simonepirozzi.techevent;
+package com.simonepirozzi.techevent.ui.account;
 
-import android.app.Dialog;
 import android.app.Fragment;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,17 +20,18 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.Source;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.simonepirozzi.techevent.AdminActivity;
+import com.simonepirozzi.techevent.EventiPubblicatiFragment;
+import com.simonepirozzi.techevent.ModificaAccountFragment;
+import com.simonepirozzi.techevent.PrivacyFragment;
+import com.simonepirozzi.techevent.ProfiloCittaPreferitaActivity;
+import com.simonepirozzi.techevent.R;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.User;
+import com.simonepirozzi.techevent.ui.login.LoginActivity;
 
 import androidx.annotation.Nullable;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -42,7 +40,7 @@ public class AccountFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
-    private Utente utente;
+    private User user;
     TextView nome,mailAccount;
     LinearLayout profilo,priv,cittPref,adminLayout,padre;
     Button logout;
@@ -70,7 +68,7 @@ public class AccountFragment extends Fragment {
         adminLayout=view.findViewById(R.id.adminLayout);
         padre=view.findViewById(R.id.padrelinear);
         tinyDB=new TinyDB(view.getContext());
-        utente=new Utente();
+        user =new User();
 
         if(dialogo!=null)   cancelDialogo(dialogo);
         dialogo=startDialogo(view.getContext(),"caricamento","",SweetAlertDialog.PROGRESS_TYPE);
@@ -83,13 +81,13 @@ public class AccountFragment extends Fragment {
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        utente=documentSnapshot.toObject(Utente.class);
-                        nome.setText(utente.getNome()+" "+utente.getCognome());
-                        mailAccount.setText(utente.getMail());
+                        user =documentSnapshot.toObject(User.class);
+                        nome.setText(user.getName()+" "+ user.getSurname());
+                        mailAccount.setText(user.getMail());
 
                         //creo menu admin
-                        if(utente.getRuolo().equalsIgnoreCase("admin")
-                                || utente.getRuolo().equalsIgnoreCase("moderatore")){
+                        if(user.getRole().equalsIgnoreCase("admin")
+                                || user.getRole().equalsIgnoreCase("moderatore")){
 
                             TextView textView=new TextView(view.getContext());
                             textView.setText("Admin");
@@ -129,7 +127,7 @@ public class AccountFragment extends Fragment {
                             adminLayout.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent intent=new Intent(view.getContext(),AdminActivity.class);
+                                    Intent intent=new Intent(view.getContext(), AdminActivity.class);
                                     startActivity(intent);
 
                                 }
@@ -157,7 +155,7 @@ public class AccountFragment extends Fragment {
         if(tinyDB.getString("mainTogestione")!=null && tinyDB.getString("mainTogestione").length()>0){
             if(tinyDB.getString("mainTogestione").equalsIgnoreCase("si")){
                 tinyDB.remove("mainTogestione");
-                getFragmentManager().beginTransaction().replace(R.id.contenitore,new EventiPubblicatiFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.frame_container,new EventiPubblicatiFragment()).commit();
             }
         }
 
@@ -167,7 +165,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(isNetwork(view.getContext())){
-                    getFragmentManager().beginTransaction().replace(R.id.contenitore,new ModificaAccountFragment(),"modificaProfilo").addToBackStack("account").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.frame_container,new ModificaAccountFragment(),"modificaProfilo").addToBackStack("account").commit();
 
                 }else{
                     if(dialogo!=null)   cancelDialogo(dialogo);
@@ -186,7 +184,7 @@ public class AccountFragment extends Fragment {
                 if(isNetwork(view.getContext())){
                     if(dialogo!=null)   cancelDialogo(dialogo);
                     dialogo=startDialogo(view.getContext(),"","caricamento",SweetAlertDialog.PROGRESS_TYPE);
-                    getFragmentManager().beginTransaction().replace(R.id.contenitore,new PrivacyFragment(),"privacy").addToBackStack("account").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.frame_container,new PrivacyFragment(),"privacy").addToBackStack("account").commit();
                     if(dialogo!=null)   cancelDialogo(dialogo);
 
                 }else{
@@ -200,7 +198,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(isNetwork(view.getContext())){
-                    Intent  intent=new Intent(view.getContext(),ProfiloCittaPreferitaActivity.class);
+                    Intent  intent=new Intent(view.getContext(), ProfiloCittaPreferitaActivity.class);
                     startActivity(intent);
 
                 }else{
@@ -236,7 +234,7 @@ public class AccountFragment extends Fragment {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
                     mAuth.signOut();
-                    Intent intent =new Intent(getActivity(),Login.class);
+                    Intent intent =new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
                     getActivity().finish();
                     if(dialogo!=null)   cancelDialogo(dialogo);

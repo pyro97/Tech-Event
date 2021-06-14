@@ -13,11 +13,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.simonepirozzi.techevent.data.db.model.Event;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,22 +23,21 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class CustomAdapterPreferiti extends ArrayAdapter<Evento> {
+public class CustomAdapterPreferiti extends ArrayAdapter<Event> {
     private int resource;
     private LayoutInflater inflater;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     View view;
-    Evento evento;
+    Event event;
     String giorno,mese;
     Button cuorex;
     int numero;
 
 
-    public CustomAdapterPreferiti(Context context, int resourceId, List<Evento> objects) {
+    public CustomAdapterPreferiti(Context context, int resourceId, List<Event> objects) {
             super(context, resourceId, objects);
             resource = resourceId;
             inflater = LayoutInflater.from(context);
@@ -56,7 +53,7 @@ public class CustomAdapterPreferiti extends ArrayAdapter<Evento> {
         mAuth= FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
     		
-             evento = getItem(position);
+             event = getItem(position);
        
 
             final TextView titolo,data,luogo,cat,prezzo;
@@ -75,7 +72,7 @@ public class CustomAdapterPreferiti extends ArrayAdapter<Evento> {
 
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd:MM:yyyy");
         try {
-            Date date=simpleDateFormat.parse(evento.getData());
+            Date date=simpleDateFormat.parse(event.getDate());
             Calendar calendar=Calendar.getInstance();
             calendar.setTime(date);
             int day= calendar.get(Calendar.DAY_OF_WEEK);
@@ -110,20 +107,20 @@ public class CustomAdapterPreferiti extends ArrayAdapter<Evento> {
             e.printStackTrace();
         }
 
-        titolo.setText(evento.getTitolo());
-         data.setText(giorno+", "+numero+" "+mese+" - "+evento.getOrarioI());
-        luogo.setText(evento.getCitta()+","+evento.getProvincia()+" - "+evento.getPosizione());
+        titolo.setText(event.getTitle());
+         data.setText(giorno+", "+numero+" "+mese+" - "+ event.getInitalTime());
+        luogo.setText(event.getCity()+","+ event.getProvince()+" - "+ event.getPosition());
 
-        if(evento.getCosto().equalsIgnoreCase("0")){
+        if(event.getCost().equalsIgnoreCase("0")){
             prezzo.setText("Gratuito");
         }else{
-            prezzo.setText("Costo: € "+evento.getCosto());
+            prezzo.setText("Costo: € "+ event.getCost());
         }
 
 
-         if(evento.getFoto().length()>0){
+         if(event.getPhoto().length()>0){
              try {
-                 byte [] encodeByte= Base64.decode(evento.getFoto(),Base64.DEFAULT);
+                 byte [] encodeByte= Base64.decode(event.getPhoto(),Base64.DEFAULT);
                  Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                  imageView.setImageBitmap(bitmap);
 
@@ -141,18 +138,18 @@ public class CustomAdapterPreferiti extends ArrayAdapter<Evento> {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                evento = getItem(position);
+                event = getItem(position);
                 Intent intent=new Intent(v.getContext(),EventoActivity.class);
                 intent.putExtra("chiamante","preferiti");
-                intent.putExtra("id",evento.getId());
-                intent.putExtra("descrizioneExtra",evento.getDescrizione());
-                intent.putExtra("titoloExtra",evento.getTitolo());
-                intent.putExtra("luogoExtra",evento.getCitta()+","+evento.getProvincia()+" - "+evento.getPosizione());
+                intent.putExtra("id", event.getId());
+                intent.putExtra("descrizioneExtra", event.getDescription());
+                intent.putExtra("titoloExtra", event.getTitle());
+                intent.putExtra("luogoExtra", event.getCity()+","+ event.getProvince()+" - "+ event.getPosition());
                 intent.putExtra("dataExtra",giorno+", "+numero+" "+mese);
-                intent.putExtra("orarioExtra",evento.getOrarioI()+" - "+evento.getOrarioF());
-                intent.putExtra("costoExtra",evento.getCosto());
-                intent.putExtra("organizzExtra",evento.getOrganizzatore());
-                intent.putExtra("contattoExtra",evento.getEmail());
+                intent.putExtra("orarioExtra", event.getInitalTime()+" - "+ event.getFinalTime());
+                intent.putExtra("costoExtra", event.getCost());
+                intent.putExtra("organizzExtra", event.getManager());
+                intent.putExtra("contattoExtra", event.getEmail());
 
 
                 v.getContext().startActivity(intent);

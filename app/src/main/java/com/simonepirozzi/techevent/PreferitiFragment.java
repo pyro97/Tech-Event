@@ -1,6 +1,5 @@
 package com.simonepirozzi.techevent;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.Service;
 import android.content.Context;
@@ -9,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +15,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,13 +41,13 @@ public class PreferitiFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
-    private Utente utente;
+    private User user;
     SweetAlertDialog dialogo;
     ListView listView;
     CustomAdapterPreferiti customAdapter;
-    ArrayList<Evento> lista;
-    List<Evento> listaprova;
-    List<Evento> listaFinale;
+    ArrayList<Event> lista;
+    List<Event> listaprova;
+    List<Event> listaFinale;
 
     TextView titTEXT;
 
@@ -70,7 +68,7 @@ public class PreferitiFragment extends Fragment {
         listaprova=new ArrayList<>();
         listaFinale=new ArrayList<>();
 
-        customAdapter=new CustomAdapterPreferiti(view.getContext(),R.layout.list_element_pref,new ArrayList<Evento>());
+        customAdapter=new CustomAdapterPreferiti(view.getContext(),R.layout.list_element_pref,new ArrayList<Event>());
 
         listView=view.findViewById(R.id.listViewPreferiti);
         listView.setAdapter(customAdapter);
@@ -98,11 +96,11 @@ public class PreferitiFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    utente=task.getResult().toObject(Utente.class);
+                    user =task.getResult().toObject(User.class);
                     db.collection("/eventi").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            List<Evento> evv=task.getResult().toObjects(Evento.class);
+                            List<Event> evv=task.getResult().toObjects(Event.class);
 
 
 
@@ -132,9 +130,9 @@ public class PreferitiFragment extends Fragment {
 
                             for(int i=0;i<evv.size();i++){
 
-                                for(int j=0;j<utente.getPreferiti().size();j++){
-                                    if(evv.get(i).getId().equalsIgnoreCase(utente.getPreferiti().get(j).getId())){
-                                        if(evv.get(i).getStato().equalsIgnoreCase("pubblicato")){
+                                for(int j = 0; j< user.getPreferences().size(); j++){
+                                    if(evv.get(i).getId().equalsIgnoreCase(user.getPreferences().get(j).getId())){
+                                        if(evv.get(i).getState().equalsIgnoreCase("pubblicato")){
                                             lista.add(evv.get(i));
 
                                         }
@@ -142,18 +140,18 @@ public class PreferitiFragment extends Fragment {
                                 }
 
                             }
-                            utente.setPreferiti(lista);
-                            db.collection("/utenti").document(currentUser.getEmail()).set(utente,SetOptions.merge());
+                            user.setPreferences(lista);
+                            db.collection("/utenti").document(currentUser.getEmail()).set(user,SetOptions.merge());
                             //nuovo
                             listaFinale.addAll(lista);
 
-                            Collections.sort(listaFinale, new Comparator<Evento>() {
+                            Collections.sort(listaFinale, new Comparator<Event>() {
                                 @Override
-                                public int compare(Evento o1, Evento o2) {
+                                public int compare(Event o1, Event o2) {
                                     try {
                                         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd:MM:yyyy");
-                                        Date data1= simpleDateFormat.parse(o1.getData());
-                                        Date data2= simpleDateFormat.parse(o2.getData());
+                                        Date data1= simpleDateFormat.parse(o1.getDate());
+                                        Date data2= simpleDateFormat.parse(o2.getDate());
                                         return data1.compareTo(data2);
                                     } catch (ParseException e) {
                                         e.printStackTrace();
@@ -163,15 +161,15 @@ public class PreferitiFragment extends Fragment {
                             });
 
 
-                            Collections.sort(listaFinale, new Comparator<Evento>() {
+                            Collections.sort(listaFinale, new Comparator<Event>() {
                                 @Override
-                                public int compare(Evento o1, Evento o2) {
+                                public int compare(Event o1, Event o2) {
                                     try {
 
-                                        if(o1.getData().equalsIgnoreCase(o2.getData())){
-                                            if(o1.getPriorità()>o2.getPriorità()){
+                                        if(o1.getDate().equalsIgnoreCase(o2.getDate())){
+                                            if(o1.getPriority()>o2.getPriority()){
                                                 return -1;
-                                            }else if(o1.getPriorità()<o2.getPriorità()){
+                                            }else if(o1.getPriority()<o2.getPriority()){
                                                 return 1;
                                             }else return 0;
                                         }else   return 0;
@@ -185,21 +183,21 @@ public class PreferitiFragment extends Fragment {
                                 }
                             });
 
-                            Collections.sort(listaFinale, new Comparator<Evento>() {
+                            Collections.sort(listaFinale, new Comparator<Event>() {
                                 @Override
-                                public int compare(Evento o1, Evento o2) {
+                                public int compare(Event o1, Event o2) {
                                     try {
 
-                                        if(o1.getData().equalsIgnoreCase(o2.getData())
-                                                && o1.getPriorità()==o2.getPriorità()){
-                                            if(o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                                    && o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                                        if(o1.getDate().equalsIgnoreCase(o2.getDate())
+                                                && o1.getPriority()==o2.getPriority()){
+                                            if(o1.getCity().equalsIgnoreCase(user.getCity())
+                                                    && o2.getCity().equalsIgnoreCase(user.getCity())){
                                                 return 0;
-                                            }else if(!o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                                    && !o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                                            }else if(!o1.getCity().equalsIgnoreCase(user.getCity())
+                                                    && !o2.getCity().equalsIgnoreCase(user.getCity())){
                                                 return 0;
-                                            }else if(o1.getCitta().equalsIgnoreCase(utente.getCittà())
-                                                    && !o2.getCitta().equalsIgnoreCase(utente.getCittà())){
+                                            }else if(o1.getCity().equalsIgnoreCase(user.getCity())
+                                                    && !o2.getCity().equalsIgnoreCase(user.getCity())){
                                                 return -1;
                                             }else return 1;
 

@@ -1,7 +1,6 @@
 package com.simonepirozzi.techevent;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.Service;
 import android.content.Context;
 import android.graphics.Color;
@@ -9,9 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,6 +17,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.simonepirozzi.techevent.data.db.TinyDB;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +32,13 @@ public class EventiPubblicatiActivity extends Activity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
-    private Utente utente;
+    private User user;
     SweetAlertDialog dialogo;
     ListView listView;
     CustomAdapterPubblicati customAdapter;
-    List<Evento> lista;
-    List<Evento> listaprova;
-    List<Evento> listaFinale;
+    List<Event> lista;
+    List<Event> listaprova;
+    List<Event> listaFinale;
     TinyDB tinyDB;
 
     TextView titTEXT;
@@ -66,7 +65,7 @@ public class EventiPubblicatiActivity extends Activity {
         listaprova=new ArrayList<>();
         listaFinale=new ArrayList<>();
 
-        customAdapter=new CustomAdapterPubblicati(EventiPubblicatiActivity.this,R.layout.list_element_pubblicati,new ArrayList<Evento>());
+        customAdapter=new CustomAdapterPubblicati(EventiPubblicatiActivity.this,R.layout.list_element_pubblicati,new ArrayList<Event>());
         listView=findViewById(R.id.listViewPubblicati);
         listView.setAdapter(customAdapter);
         if(dialogo!=null)   cancelDialogo(dialogo);
@@ -94,12 +93,12 @@ public class EventiPubblicatiActivity extends Activity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    List<Evento> eventoArrayList=task.getResult().toObjects(Evento.class);
-                    for(int i=0;i<eventoArrayList.size();i++){
-                        customAdapter.add(eventoArrayList.get(i));
+                    List<Event> eventArrayList =task.getResult().toObjects(Event.class);
+                    for(int i = 0; i< eventArrayList.size(); i++){
+                        customAdapter.add(eventArrayList.get(i));
                     }
 
-                    if(eventoArrayList.size()==0){
+                    if(eventArrayList.size()==0){
                         if(dialogo!=null)   cancelDialogo(dialogo);
                         dialogo=startDialogo("Non hai pubblicato ancora nessun evento!","",SweetAlertDialog.WARNING_TYPE);
                     }else{
