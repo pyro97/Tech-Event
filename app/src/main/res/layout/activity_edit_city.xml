@@ -50,7 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/citySceltaProf"
+                android:id="@+id/selectedCityProf"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -139,7 +139,7 @@
 
 
         <Button
-            android:id="@+id/prof_button_città"
+            android:id="@+id/prof_button_city"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"

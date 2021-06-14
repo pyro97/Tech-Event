@@ -16,10 +16,13 @@ public class Constants {
     public static final String NO_CITY = "Nessuna";
 
     public static final String USER_ROLE = "utente";
+    public static final String ADMIN_ROLE = "admin";
 
     public static final String TAG_ACCOUNT = "account";
-
-
-
-
+    public static final String TAG_PRIVACY = "privacy";
+    public static final String TAG_ADMIN = "admin";
+    public static final String TAG_MOD = "moderatore";
+    public static final String TAG_EDIT_PROFILE = "modificaProfilo";
+    public static final String TAG_EMAIL = "email";
+    public static final String TAG_STATE = "stato";
 }

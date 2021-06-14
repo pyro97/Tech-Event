@@ -7,7 +7,11 @@ import java.util.List;
 
 public class FirestoreManager {
     public static final String USER_COLLECTION = "/utenti";
+    public static final String EVENT_COLLECTION = "/eventi";
+
     public static final String BANNED_USER = "bannato";
+    public static final String STATE_PROGRESS = "attesa";
+
 
     public static FirebaseFirestore getInstance() {
         return FirebaseFirestore.getInstance();

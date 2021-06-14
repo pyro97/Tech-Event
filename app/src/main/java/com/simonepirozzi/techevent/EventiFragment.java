@@ -126,27 +126,5 @@ public class EventiFragment extends Fragment {
         else    return false;
     }
 
-    public void getJson(View view){
-        String json;
-        try{
-            InputStream is=view.getContext().getAssets().open("com.json");
-            int size=is.available();
-            byte[] buffer=new byte[size];
-
-            is.read(buffer);
-            is.close();
-            json=new String(buffer,"UTF-8");
-
-            JSONArray jsonArray=new JSONArray(json);
-            for(int i=0;i<jsonArray.length();i++){
-                JSONObject jsonObject=jsonArray.getJSONObject(i);
-                cittaList.add(jsonObject.getString("comune")+","+jsonObject.getString("provincia"));
-            }
-
-        }catch (Exception e){
-            Log.d("cazz",e.getMessage());
-        }
-    }
-
 
 }

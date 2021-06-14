@@ -39,11 +39,11 @@
         <activity android:name=".GestioneEvento"/>
         <activity android:name=".RicercaActivity"/>
         <activity android:name=".EventiPubblicatiActivity"/>
-        <activity android:name=".ProfiloCittaPreferitaActivity"/>
-        <activity android:name=".AdminActivity"/>
+        <activity android:name=".ui.account.editAccount.FavouriteCityActivity"/>
+        <activity android:name=".ui.account.admin.AdminActivity"/>
         <activity android:name=".GestioneAdmin"/>
-        <activity android:name=".BannaUtente"/>
-        <activity android:name=".GestioneEventiAdmin"/>
+        <activity android:name=".ui.account.admin.UserBanActivity"/>
+        <activity android:name=".ui.account.admin.EventManagementAdminActivity"/>
         <activity android:name=".EventoActivityAdmin"/>
     </application>
 

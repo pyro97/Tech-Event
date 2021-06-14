@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-   android:id="@+id/padrelinear"
+   android:id="@+id/linearExtend"
     android:layout_height="match_parent">
 
 
@@ -21,9 +21,10 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <TextView
-            android:id="@+id/nomi"
-            android:layout_width="wrap_content"
+            android:id="@+id/names"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="@android:color/black"
@@ -48,7 +49,7 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Imposta"
+        android:text="@string/set_profile_text"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -66,7 +67,7 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profilo"
+            android:text="@string/profile"
             android:textColor="@android:color/black"
             android:textSize="14sp"
             />
@@ -89,7 +90,7 @@
 
 
     <LinearLayout
-        android:id="@+id/setCittaPreferita"
+        android:id="@+id/setFavCity"
         android:padding="10dp"
         android:orientation="horizontal"
         android:gravity="center_vertical|center_horizontal"
@@ -101,7 +102,7 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Città preferita"
+            android:text="@string/fav_city"
             android:textColor="@android:color/black"
             android:textSize="14sp"
             />
@@ -139,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:text="Informazioni"
+        android:text="@string/info"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -157,7 +158,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Versione"
+            android:text="@string/version_text"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
@@ -189,7 +190,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Privacy"
+            android:text="@string/privacy_text"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
@@ -216,7 +217,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="100dp"
         android:background="@drawable/rounded1"
-        android:text="ESCI"
+        android:text="@string/logout_text"
         android:textColor="@color/fui_bgGoogle"
         android:textSize="14sp" />
 </LinearLayout>

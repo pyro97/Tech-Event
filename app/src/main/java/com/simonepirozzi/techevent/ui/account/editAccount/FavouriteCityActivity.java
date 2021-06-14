@@ -1,7 +1,6 @@
-package com.simonepirozzi.techevent.ui.login.signin;
+package com.simonepirozzi.techevent.ui.account.editAccount;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,9 +15,11 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.google.firebase.auth.FirebaseUser;
 import com.simonepirozzi.techevent.R;
-import com.simonepirozzi.techevent.ui.login.LoginActivity;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.data.db.model.User;
+import com.simonepirozzi.techevent.ui.account.AccountContract;
+import com.simonepirozzi.techevent.ui.account.AccountPresenter;
 import com.simonepirozzi.techevent.utils.Constants;
 import com.simonepirozzi.techevent.utils.Utility;
 
@@ -28,32 +29,31 @@ import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
-public class SignInCityActivity extends Activity implements SignInContract.View {
+public class FavouriteCityActivity extends Activity implements AccountContract.View {
     List<String> numberList = new ArrayList<>();
     TextView selectedCity;
-    String name, surname, mail, password;
+    String province;
     EditText city;
     Button signin;
     ListView cityList;
     ArrayAdapter<String> adapter;
+    String newCity;
     SweetAlertDialog dialog;
-    SignInPresenter mPresenter;
+    AccountPresenter mPresenter;
+    boolean isEdit = false;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in_city);
-        name = getIntent().getStringExtra(Constants.NAME_SIGN_IN);
-        surname = getIntent().getStringExtra(Constants.SURNAME_SIGN_IN);
-        mail = getIntent().getStringExtra(Constants.EMAIL_SIGN_IN);
-        password = getIntent().getStringExtra(Constants.PASSWORD_SIGN_IN);
-        city = findViewById(R.id.Reg_City);
-        selectedCity = findViewById(R.id.selectedCity);
-        cityList = findViewById(R.id.listViewCity);
-        signin = findViewById(R.id.signinButtonCity);
-
-        mPresenter = new SignInPresenter(this, this);
+        setContentView(R.layout.activity_edit_city);
+        city = findViewById(R.id.Prof_City);
+        selectedCity = findViewById(R.id.selectedCityProf);
+        cityList = findViewById(R.id.listViewCittaProf);
+        signin = findViewById(R.id.prof_button_city);
+        mPresenter = new AccountPresenter(this, this);
+        isEdit = false;
+        mPresenter.getAccount();
 
         numberList = Utility.getJson(this);
         adapter = new ArrayAdapter<>(this, R.layout.custom_list_item_view, R.id.text_view_list_item, numberList);
@@ -87,52 +87,69 @@ public class SignInCityActivity extends Activity implements SignInContract.View 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.signInWithCity(selectedCity.getText().toString(), mail, password, name, surname);
+                if (selectedCity.getText().toString().length() != 0) {
+
+                    if (!selectedCity.getText().toString().equalsIgnoreCase(Constants.NO_CITY)) {
+                        if (selectedCity.getText().toString().contains(",")) {
+                            newCity = selectedCity.getText().toString().substring(0, selectedCity.getText().toString().indexOf(","));
+                            province = selectedCity.getText().toString().substring(selectedCity.getText().toString().indexOf(",") + 1);
+                        }
+                        isEdit = true;
+                        mPresenter.getAccount();
+                    } else {
+                        startDialog(getString(R.string.warning_title), getString(R.string.select_city_error), SweetAlertDialog.WARNING_TYPE);
+                    }
+                } else {
+                    startDialog(getString(R.string.warning_title), getString(R.string.select_city_error), SweetAlertDialog.WARNING_TYPE);
+                }
             }
         });
-
-
     }
 
     @Override
-    public void updateUI(FirebaseUser firebaseUser) {
-        if (firebaseUser != null) {
-            cancelDialog();
-            Intent intent = new Intent(SignInCityActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
     public SweetAlertDialog startDialog(String title, String message, int type) {
         cancelDialog();
         dialog = new SweetAlertDialog(this, type);
         dialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
         dialog.setTitleText(title);
-        if (!message.equalsIgnoreCase(getString(R.string.dialog_loading))) {
-            if (message.equalsIgnoreCase(getString(R.string.verify_account))) {
-                dialog.setContentText(message);
-                dialog.setConfirmButton(getString(R.string.dialog_ok), new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        updateUI(mPresenter.firebaseUser);
-                    }
-                });
-            } else {
-                dialog.setContentText(message);
-                dialog.setConfirmText(getString(R.string.dialog_ok));
-            }
+        if (!message.equalsIgnoreCase(getString(R.string.loading_message))) {
+            dialog.setContentText(message);
+            dialog.setConfirmText(getString(R.string.dialog_ok));
         }
         dialog.setCancelable(false);
         dialog.show();
         return dialog;
+
     }
 
+    @Override
     public void cancelDialog() {
         if (dialog != null) {
             dialog.cancel();
         }
     }
 
+    @Override
+    public void setAccountLayout(User user) {
+        if (isEdit) {
+            isEdit = false;
+            User userEdit = user;
+            userEdit.setCity(newCity);
+            userEdit.setProvince(province);
+            mPresenter.saveEditCity(userEdit);
+        } else {
+            selectedCity.setText(user.getCity());
+        }
+    }
 
+    @Override
+    public void setEventLayout(List<Event> events) {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
 }

@@ -1,14 +1,9 @@
 package com.simonepirozzi.techevent.ui.account;
 
 import android.app.Fragment;
-import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,193 +12,82 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.simonepirozzi.techevent.AdminActivity;
-import com.simonepirozzi.techevent.EventiPubblicatiFragment;
-import com.simonepirozzi.techevent.ModificaAccountFragment;
-import com.simonepirozzi.techevent.PrivacyFragment;
-import com.simonepirozzi.techevent.ProfiloCittaPreferitaActivity;
+import com.simonepirozzi.techevent.data.db.model.Event;
+import com.simonepirozzi.techevent.ui.account.admin.AdminActivity;
+import com.simonepirozzi.techevent.ui.account.editAccount.EditAccountFragment;
+import com.simonepirozzi.techevent.ui.account.privacy.PrivacyFragment;
+import com.simonepirozzi.techevent.ui.account.editAccount.FavouriteCityActivity;
 import com.simonepirozzi.techevent.R;
-import com.simonepirozzi.techevent.data.db.TinyDB;
 import com.simonepirozzi.techevent.data.db.model.User;
 import com.simonepirozzi.techevent.ui.login.LoginActivity;
+import com.simonepirozzi.techevent.utils.Constants;
+import com.simonepirozzi.techevent.utils.Utility;
 
-import androidx.annotation.Nullable;
+import java.util.List;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class AccountFragment extends Fragment {
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
-    private FirebaseUser currentUser;
-    private User user;
-    TextView nome,mailAccount;
-    LinearLayout profilo,priv,cittPref,adminLayout,padre;
+public class AccountFragment extends Fragment implements AccountContract.View {
+    TextView name, mailAccount;
+    LinearLayout profile, privacy, favCity, adminLayout, linearExtend;
     Button logout;
-    SweetAlertDialog dialogo;
-    TinyDB tinyDB;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mAuth=FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
-    }
+    SweetAlertDialog dialog;
+    AccountPresenter mPresenter;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_account, container, false);
+    }
 
-        final View view=inflater.inflate(R.layout.fragment_account, container, false);
-        db = FirebaseFirestore.getInstance();
-        logout=view.findViewById(R.id.logout);
-        nome=view.findViewById(R.id.nomi);
-        mailAccount=view.findViewById(R.id.mailAccount);
-        profilo=view.findViewById(R.id.setProfilo);
-        priv=view.findViewById(R.id.privacy);
-        cittPref=view.findViewById(R.id.setCittaPreferita);
-        adminLayout=view.findViewById(R.id.adminLayout);
-        padre=view.findViewById(R.id.padrelinear);
-        tinyDB=new TinyDB(view.getContext());
-        user =new User();
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        if(dialogo!=null)   cancelDialogo(dialogo);
-        dialogo=startDialogo(view.getContext(),"caricamento","",SweetAlertDialog.PROGRESS_TYPE);
+        logout = view.findViewById(R.id.logout);
+        name = view.findViewById(R.id.names);
+        mailAccount = view.findViewById(R.id.mailAccount);
+        profile = view.findViewById(R.id.setProfilo);
+        privacy = view.findViewById(R.id.privacy);
+        favCity = view.findViewById(R.id.setFavCity);
+        adminLayout = view.findViewById(R.id.adminLayout);
+        linearExtend = view.findViewById(R.id.linearExtend);
+        mPresenter = new AccountPresenter(getActivity(), this);
 
+        mPresenter.getAccount();
+        mPresenter.checkPublishEventFlow();
 
-        if(currentUser!=null){
-            DocumentReference docRef = db.collection("/utenti").document(currentUser.getEmail());
-
-            if(isNetwork(view.getContext())){
-                docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        user =documentSnapshot.toObject(User.class);
-                        nome.setText(user.getName()+" "+ user.getSurname());
-                        mailAccount.setText(user.getMail());
-
-                        //creo menu admin
-                        if(user.getRole().equalsIgnoreCase("admin")
-                                || user.getRole().equalsIgnoreCase("moderatore")){
-
-                            TextView textView=new TextView(view.getContext());
-                            textView.setText("Admin");
-                            textView.setGravity(Gravity.LEFT);
-                            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    1.0f
-                            );
-                            textView.setLayoutParams(param);
-                            textView.setTextColor(Color.BLACK);
-                            textView.setTextSize(14);
-
-                            TextView textView1=new TextView(view.getContext());
-                            textView1.setGravity(Gravity.RIGHT);
-                            LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    1.0f
-                            );
-                            textView1.setLayoutParams(param1);
-                            textView1.setTextColor(Color.GRAY);
-                            textView1.setTextSize(18);
-                            textView1.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.ic_action_arrow, 0);
-
-                            View viewTW=new View(view.getContext());
-                            LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    1
-                            );
-                            viewTW.setLayoutParams(param2);
-                            viewTW.setBackground(getResources().getDrawable(R.color.gray_btn_bg_pressed_color));
-
-                            adminLayout.addView(textView);
-                            adminLayout.addView(textView1);
-
-                            adminLayout.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent intent=new Intent(view.getContext(), AdminActivity.class);
-                                    startActivity(intent);
-
-                                }
-                            });
-                        }
-
-
-
-
-                        if(dialogo!=null)   cancelDialogo(dialogo);
-
-                    }
-                });
-            }else{
-                if(dialogo!=null)   cancelDialogo(dialogo);
-                dialogo=startDialogo(view.getContext(),"Attenzione","Problemi di connessione",SweetAlertDialog.ERROR_TYPE);
-
-
-            }
-
-
-
-        }
-
-        if(tinyDB.getString("mainTogestione")!=null && tinyDB.getString("mainTogestione").length()>0){
-            if(tinyDB.getString("mainTogestione").equalsIgnoreCase("si")){
-                tinyDB.remove("mainTogestione");
-                getFragmentManager().beginTransaction().replace(R.id.frame_container,new EventiPubblicatiFragment()).commit();
-            }
-        }
-
-
-
-            profilo.setOnClickListener(new View.OnClickListener() {
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetwork(view.getContext())){
-                    getFragmentManager().beginTransaction().replace(R.id.frame_container,new ModificaAccountFragment(),"modificaProfilo").addToBackStack("account").commit();
-
-                }else{
-                    if(dialogo!=null)   cancelDialogo(dialogo);
-                    dialogo=startDialogo(view.getContext(),"Attenzione","Problemi di connessione",SweetAlertDialog.ERROR_TYPE);
+                if (Utility.isNetwork(getActivity())) {
+                    getFragmentManager().beginTransaction().replace(R.id.frame_container, new EditAccountFragment(), Constants.TAG_EDIT_PROFILE).addToBackStack(Constants.TAG_ACCOUNT).commit();
+                } else {
+                    startDialog(getString(R.string.warning_title), getString(R.string.connection_error), SweetAlertDialog.ERROR_TYPE);
                 }
             }
         });
 
 
-
-
-
-        priv.setOnClickListener(new View.OnClickListener() {
+        privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetwork(view.getContext())){
-                    if(dialogo!=null)   cancelDialogo(dialogo);
-                    dialogo=startDialogo(view.getContext(),"","caricamento",SweetAlertDialog.PROGRESS_TYPE);
-                    getFragmentManager().beginTransaction().replace(R.id.frame_container,new PrivacyFragment(),"privacy").addToBackStack("account").commit();
-                    if(dialogo!=null)   cancelDialogo(dialogo);
-
-                }else{
-                    if(dialogo!=null)   cancelDialogo(dialogo);
-                    dialogo=startDialogo(view.getContext(),"Attenzione","Problemi di connessione",SweetAlertDialog.ERROR_TYPE);
+                if (Utility.isNetwork(getActivity())) {
+                    startDialog("", getString(R.string.loading_message), SweetAlertDialog.PROGRESS_TYPE);
+                    getFragmentManager().beginTransaction().replace(R.id.frame_container, new PrivacyFragment(), Constants.TAG_PRIVACY).addToBackStack(Constants.TAG_ACCOUNT).commit();
+                    cancelDialog();
+                } else {
+                    startDialog(getString(R.string.warning_title), getString(R.string.connection_error), SweetAlertDialog.ERROR_TYPE);
                 }
             }
         });
 
-        cittPref.setOnClickListener(new View.OnClickListener() {
+        favCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetwork(view.getContext())){
-                    Intent  intent=new Intent(view.getContext(), ProfiloCittaPreferitaActivity.class);
+                if (Utility.isNetwork(getActivity())) {
+                    Intent intent = new Intent(getActivity(), FavouriteCityActivity.class);
                     startActivity(intent);
-
-                }else{
-                    if(dialogo!=null)   cancelDialogo(dialogo);
-                    dialogo=startDialogo(view.getContext(),"Attenzione","Problemi di connessione",SweetAlertDialog.ERROR_TYPE);
+                } else {
+                    startDialog(getString(R.string.warning_title), getString(R.string.connection_error), SweetAlertDialog.ERROR_TYPE);
                 }
             }
         });
@@ -212,69 +96,114 @@ public class AccountFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dialogo!=null)   cancelDialogo(dialogo);
-                dialogo=startDialogo(view.getContext(),"Attenzione","Stai per essere disconnesso. Sei sicuro/a ?",SweetAlertDialog.WARNING_TYPE);
+                startDialog(getString(R.string.warning_title), getString(R.string.sign_out_dialog), SweetAlertDialog.WARNING_TYPE);
             }
         });
 
-
-
-        return view;
     }
 
-    public SweetAlertDialog startDialogo(Context context, String title, String message, int tipo){
-
-
-        SweetAlertDialog pDialog = new SweetAlertDialog(context, tipo);
-        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        pDialog.setTitleText(title);
-        if(message.equalsIgnoreCase("Stai per essere disconnesso. Sei sicuro/a ?")){
-            pDialog.setContentText(message);
-            pDialog.setConfirmButton("Si", new SweetAlertDialog.OnSweetClickListener() {
+    @Override
+    public SweetAlertDialog startDialog(String title, String message, int type) {
+        cancelDialog();
+        dialog = new SweetAlertDialog(getActivity(), type);
+        dialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        dialog.setTitleText(title);
+        if (message.equalsIgnoreCase(getString(R.string.sign_out_dialog))) {
+            dialog.setContentText(message);
+            dialog.setConfirmButton(getString(R.string.yes_dialog), new SweetAlertDialog.OnSweetClickListener() {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
-                    mAuth.signOut();
-                    Intent intent =new Intent(getActivity(), LoginActivity.class);
+                    mPresenter.signOut();
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
                     getActivity().finish();
-                    if(dialogo!=null)   cancelDialogo(dialogo);
+                    cancelDialog();
                 }
             });
-            pDialog.setCancelButton("Annulla", new SweetAlertDialog.OnSweetClickListener() {
+            dialog.setCancelButton(getString(R.string.dialog_cancel), new SweetAlertDialog.OnSweetClickListener() {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
-                    if(dialogo!=null)   cancelDialogo(dialogo);
+                    cancelDialog();
                 }
             });
-        }else{
-
-            if(!message.equalsIgnoreCase("caricamento")){
-                pDialog.setConfirmText("Ok");
-                pDialog.setContentText(message);
+        } else {
+            if (!message.equalsIgnoreCase(getString(R.string.loading_message))) {
+                dialog.setConfirmText(getString(R.string.dialog_ok));
+                dialog.setContentText(message);
             }
-
-
         }
-
-        pDialog.setCancelable(false);
-        pDialog.show();
-        return pDialog;
+        dialog.setCancelable(false);
+        dialog.show();
+        return dialog;
 
     }
 
-
-
-    public void cancelDialogo(SweetAlertDialog s){
-
-        s.cancel();
+    @Override
+    public void cancelDialog() {
+        if (dialog != null) {
+            dialog.cancel();
+        }
     }
 
-    public boolean isNetwork(Context context){
-        ConnectivityManager manager =(ConnectivityManager) context.getSystemService(Service.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = manager.getActiveNetworkInfo();
-        if(activeNetwork!=null && activeNetwork.getState()== NetworkInfo.State.CONNECTED)   return true;
-        else    return false;
+    @Override
+    public void setAccountLayout(User user) {
+        name.setText(user.getName() + " " + user.getSurname());
+        mailAccount.setText(user.getMail());
+
+        //creo menu admin
+        if (user.getRole().equalsIgnoreCase(Constants.TAG_ADMIN)
+                || user.getRole().equalsIgnoreCase(Constants.TAG_MOD)) {
+
+            TextView textView = new TextView(getActivity());
+            textView.setText(R.string.admin_text);
+            textView.setGravity(Gravity.LEFT);
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    1.0f
+            );
+            textView.setLayoutParams(param);
+            textView.setTextColor(Color.BLACK);
+            textView.setTextSize(14);
+
+            TextView textView1 = new TextView(getActivity());
+            textView1.setGravity(Gravity.RIGHT);
+            LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    1.0f
+            );
+            textView1.setLayoutParams(param1);
+            textView1.setTextColor(Color.GRAY);
+            textView1.setTextSize(18);
+            textView1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_action_arrow, 0);
+
+            View viewTW = new View(getActivity());
+            LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    1
+            );
+            viewTW.setLayoutParams(param2);
+            viewTW.setBackground(getResources().getDrawable(R.color.gray_btn_bg_pressed_color));
+
+            adminLayout.addView(textView);
+            adminLayout.addView(textView1);
+
+            adminLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), AdminActivity.class);
+                    startActivity(intent);
+
+                }
+            });
+        }
+        cancelDialog();
     }
 
+    @Override
+    public void setEventLayout(List<Event> events) {
+
+    }
 
 }

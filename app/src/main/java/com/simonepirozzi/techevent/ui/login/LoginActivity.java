@@ -86,16 +86,16 @@ public class LoginActivity extends Activity implements LoginContract.View {
 
     public SweetAlertDialog startDialog(String title, String message, int type) {
         cancelDialog();
-        SweetAlertDialog pDialog = new SweetAlertDialog(this, type);
-        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        pDialog.setTitleText(title);
+        dialog = new SweetAlertDialog(this, type);
+        dialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        dialog.setTitleText(title);
         if (!message.equalsIgnoreCase(getString(R.string.dialog_loading))) {
-            pDialog.setContentText(message);
-            pDialog.setConfirmText(getString(R.string.dialog_ok));
+            dialog.setContentText(message);
+            dialog.setConfirmText(getString(R.string.dialog_ok));
         }
-        pDialog.setCancelable(false);
-        pDialog.show();
-        return pDialog;
+        dialog.setCancelable(false);
+        dialog.show();
+        return dialog;
 
     }
 
