@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.simonepirozzi.techevent.GestioneAdmin;
 import com.simonepirozzi.techevent.R;
 import com.simonepirozzi.techevent.data.db.model.Event;
 import com.simonepirozzi.techevent.data.db.model.User;
@@ -114,7 +113,7 @@ public class AdminActivity extends Activity implements AccountContract.View {
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(AdminActivity.this, GestioneAdmin.class);
+                    Intent intent = new Intent(AdminActivity.this, AdminManagementActivity.class);
                     startActivity(intent);
                 }
             });

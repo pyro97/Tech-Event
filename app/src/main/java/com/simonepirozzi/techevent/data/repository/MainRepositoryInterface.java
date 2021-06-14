@@ -15,6 +15,12 @@ public interface MainRepositoryInterface {
 
     Task<QuerySnapshot> getCollectionByState(String collection, String state);
 
+    Task<QuerySnapshot> getCollectionById(String collection, String id);
+
+    Task<QuerySnapshot> getCollectionByEmail(String collection, String email);
+
+    Task<QuerySnapshot> getCollectionByProvince(String collection, String province);
+
     Task<Void> setDocument(String collection, String document, Object object);
 
     Task<Void> deleteDocument(String collection, String document);
@@ -28,4 +34,8 @@ public interface MainRepositoryInterface {
     Task<Void> sendPasswordResetEmail(String mail);
 
     Task<AuthResult> createUser(String mail, String password);
+
+    Task<QuerySnapshot> getDocumentByParam(String eventCollection, String key, String param);
+
+    Task<QuerySnapshot> getDocumentByMultParam(String eventCollection, String key, String param, String key1, String param1);
 }

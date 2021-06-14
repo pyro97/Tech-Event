@@ -1,4 +1,4 @@
-package com.simonepirozzi.techevent;
+package com.simonepirozzi.techevent.ui.event;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -40,6 +40,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.simonepirozzi.techevent.R;
 import com.simonepirozzi.techevent.data.db.TinyDB;
 import com.simonepirozzi.techevent.data.db.model.Event;
 import com.simonepirozzi.techevent.data.db.model.User;

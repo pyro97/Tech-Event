@@ -43,6 +43,21 @@ public class MainRepository implements MainRepositoryInterface{
     }
 
     @Override
+    public Task<QuerySnapshot> getCollectionById(String collection, String id) {
+        return instance.collection(collection).whereEqualTo("id",id).get();
+    }
+
+    @Override
+    public Task<QuerySnapshot> getCollectionByEmail(String collection, String email) {
+        return instance.collection(collection).whereEqualTo("email",email).get();
+    }
+
+    @Override
+    public Task<QuerySnapshot> getCollectionByProvince(String collection, String province) {
+        return instance.collection(collection).whereEqualTo("province",province).get();
+    }
+
+    @Override
     public Task<Void> setDocument(String collection, String document, Object object) {
         return instance.collection(collection).document(document).set(object, SetOptions.merge());
     }
@@ -75,5 +90,14 @@ public class MainRepository implements MainRepositoryInterface{
     @Override
     public Task<AuthResult> createUser(String mail, String password) {
         return authInstance.createUserWithEmailAndPassword(mail,password);
+    }
+
+    @Override
+    public Task<QuerySnapshot> getDocumentByParam(String eventCollection, String key, String param) {
+        return instance.collection(eventCollection).whereEqualTo(key,param).get();
+    }
+    @Override
+    public Task<QuerySnapshot> getDocumentByMultParam(String eventCollection, String key, String param, String key1, String param1) {
+        return instance.collection(eventCollection).whereEqualTo(key,param).whereEqualTo(key1,param1).get();
     }
 }

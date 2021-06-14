@@ -1,9 +1,10 @@
-package com.simonepirozzi.techevent.ui.account.admin.adapter;
+package com.simonepirozzi.techevent.ui.home.adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.AppCompatImageView;
-
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.simonepirozzi.techevent.ui.account.admin.ActivityEventAdmin;
+import com.simonepirozzi.techevent.ui.event.EventoActivity;
 import com.simonepirozzi.techevent.R;
 import com.simonepirozzi.techevent.data.db.model.Event;
 
@@ -25,16 +24,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
+import androidx.appcompat.widget.AppCompatImageView;
+
+public class CustomAdapter extends ArrayAdapter<Event> {
     private int resource;
     private LayoutInflater inflater;
     private FirebaseFirestore db;
 
     Event event;
-    String day, month;
-    int number;
+    String giorno, mese;
+    int numero;
 
-    public CustomAdapterEventiAdmin(Context context, int resourceId, List<Event> objects) {
+    public CustomAdapter(Context context, int resourceId, List<Event> objects) {
         super(context, resourceId, objects);
         resource = resourceId;
         inflater = LayoutInflater.from(context);
@@ -49,7 +50,7 @@ public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
         event = getItem(position);
 
 
-        final TextView titolo, data, luogo;
+        final TextView titolo, data, luogo, prezzo;
         final LinearLayout linearLayout;
         final AppCompatImageView imageView;
 
@@ -58,6 +59,7 @@ public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
         data = v.findViewById(R.id.dateElement);
         luogo = v.findViewById(R.id.luogoElement);
         imageView = v.findViewById(R.id.fotoElement);
+        prezzo = v.findViewById(R.id.prezzoElement);
 
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MM:yyyy");
@@ -67,28 +69,28 @@ public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
             calendar.setTime(date);
             int day = calendar.get(Calendar.DAY_OF_WEEK);
             int month = calendar.get(Calendar.MONTH);
-            number = calendar.get(Calendar.DATE);
-            if (day == 1) this.day = v.getContext().getString(R.string.dom);
-            else if (day == 2) this.day = v.getContext().getString(R.string.lun);
-            else if (day == 3) this.day = v.getContext().getString(R.string.mar);
-            else if (day == 4) this.day = v.getContext().getString(R.string.mer);
-            else if (day == 5) this.day = v.getContext().getString(R.string.gio);
-            else if (day == 6) this.day = v.getContext().getString(R.string.ven);
-            else if (day == 7) this.day = v.getContext().getString(R.string.sab);
+            numero = calendar.get(Calendar.DATE);
+            if (day == 1) giorno = "dom";
+            else if (day == 2) giorno = "lun";
+            else if (day == 3) giorno = "mar";
+            else if (day == 4) giorno = "mer";
+            else if (day == 5) giorno = "gio";
+            else if (day == 6) giorno = "ven";
+            else if (day == 7) giorno = "sab";
 
 
-            if (month == 0) this.month = v.getContext().getString(R.string.gen);
-            else if (month == 1) this.month = v.getContext().getString(R.string.feb);
-            else if (month == 2) this.month = v.getContext().getString(R.string.mar);
-            else if (month == 3) this.month = v.getContext().getString(R.string.apr);
-            else if (month == 4) this.month = v.getContext().getString(R.string.mag);
-            else if (month == 5) this.month = v.getContext().getString(R.string.giu);
-            else if (month == 6) this.month = v.getContext().getString(R.string.lug);
-            else if (month == 7) this.month = v.getContext().getString(R.string.ago);
-            else if (month == 8) this.month = v.getContext().getString(R.string.set);
-            else if (month == 9) this.month = v.getContext().getString(R.string.ott);
-            else if (month == 10) this.month = v.getContext().getString(R.string.nov);
-            else if (month == 11) this.month = v.getContext().getString(R.string.dic);
+            if (month == 0) mese = "gen";
+            else if (month == 1) mese = "feb";
+            else if (month == 2) mese = "mar";
+            else if (month == 3) mese = "apr";
+            else if (month == 4) mese = "mag";
+            else if (month == 5) mese = "giu";
+            else if (month == 6) mese = "lug";
+            else if (month == 7) mese = "ago";
+            else if (month == 8) mese = "set";
+            else if (month == 9) mese = "ott";
+            else if (month == 10) mese = "nov";
+            else if (month == 11) mese = "dic";
 
 
         } catch (ParseException e) {
@@ -96,8 +98,14 @@ public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
         }
 
         titolo.setText(event.getTitle());
-        data.setText(day + ", " + number + " " + month + " - " + event.getInitalTime());
+        data.setText(giorno + ", " + numero + " " + mese + " - " + event.getInitalTime());
         luogo.setText(event.getCity() + "," + event.getProvince() + " - " + event.getPosition());
+        if (event.getCost().equalsIgnoreCase("0")) {
+            prezzo.setText("Gratuito");
+        } else {
+            prezzo.setText("Costo: € " + event.getCost());
+        }
+
         if (event.getPhoto().length() > 0) {
             try {
                 byte[] encodeByte = Base64.decode(event.getPhoto(), Base64.DEFAULT);
@@ -119,14 +127,13 @@ public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
             @Override
             public void onClick(View v) {
                 event = getItem(position);
-                Intent intent = new Intent(v.getContext(), ActivityEventAdmin.class);
+                Intent intent = new Intent(v.getContext(), EventoActivity.class);
                 intent.putExtra("chiamante", "home");
                 intent.putExtra("id", event.getId());
                 intent.putExtra("descrizioneExtra", event.getDescription());
                 intent.putExtra("titoloExtra", event.getTitle());
-                intent.putExtra("cittaExtra", event.getCity() + "," + event.getProvince());
-                intent.putExtra("luogoExtra", event.getPosition());
-                intent.putExtra("dataExtra", day + ", " + number + " " + month);
+                intent.putExtra("luogoExtra", event.getCity() + "," + event.getProvince() + " - " + event.getPosition());
+                intent.putExtra("dataExtra", giorno + ", " + numero + " " + mese);
                 intent.putExtra("orarioExtra", event.getInitalTime() + " - " + event.getFinalTime());
                 intent.putExtra("costoExtra", event.getCost());
                 intent.putExtra("organizzExtra", event.getManager());
@@ -141,6 +148,7 @@ public class CustomAdapterEventiAdmin extends ArrayAdapter<Event> {
         linearLayout.setTag(position);
         luogo.setTag(position);
         data.setTag(position);
+        prezzo.setTag(position);
 
         return v;
     }

@@ -15,7 +15,11 @@ public class AccountContract {
 
     interface Presenter{
 
+        Task<QuerySnapshot> getEventById(String id);
+
         Task<DocumentSnapshot> getUserDocument();
+
+        Task<DocumentSnapshot> getUserDocumentCustom(String mail);
 
         Task<QuerySnapshot> getUserCollection();
 
@@ -23,13 +27,19 @@ public class AccountContract {
 
         Task<Void> setUserDocument(User user);
 
+        Task<Void> setEventDocument(String date, Event event);
+
         void getAccount();
+
+        void banAccount(String mail, boolean isBan);
 
         void checkPublishEventFlow();
 
         void signOut();
 
         Task<QuerySnapshot> getEventByUser();
+
+        Task<QuerySnapshot> getEventByUserCustom(String mail);
 
         Task<QuerySnapshot> getEventByState(String state);
 
@@ -42,6 +52,18 @@ public class AccountContract {
         void saveEditAccount(String name, String surname);
 
         void reauthenticate(String password);
+
+        void getListAccount();
+
+        void getListAccountAdmin();
+
+        void setRole(String mail, String role);
+
+        void eventsById(String id);
+
+        void confirmEvent(Event e, boolean isConfirm);
+
+        void setFavouriteEvents();
     }
 
     public interface View{

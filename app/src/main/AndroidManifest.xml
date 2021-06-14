@@ -35,16 +35,16 @@
         <activity android:name=".ui.login.fogotten.PasswordRecoveryActivity">
         </activity>
         <activity android:name=".ui.login.signin.SignInCityActivity"/>
-<activity android:name=".EventoActivity"/>
-        <activity android:name=".GestioneEvento"/>
-        <activity android:name=".RicercaActivity"/>
-        <activity android:name=".EventiPubblicatiActivity"/>
+<activity android:name=".ui.event.EventoActivity"/>
+        <activity android:name=".ui.event.GestioneEvento"/>
+        <activity android:name=".ui.search.RicercaActivity"/>
+        <activity android:name=".ui.event.publish.PublishEventActivity"/>
         <activity android:name=".ui.account.editAccount.FavouriteCityActivity"/>
         <activity android:name=".ui.account.admin.AdminActivity"/>
-        <activity android:name=".GestioneAdmin"/>
+        <activity android:name=".ui.account.admin.AdminManagementActivity"/>
         <activity android:name=".ui.account.admin.UserBanActivity"/>
         <activity android:name=".ui.account.admin.EventManagementAdminActivity"/>
-        <activity android:name=".EventoActivityAdmin"/>
+        <activity android:name=".ui.account.admin.ActivityEventAdmin"/>
     </application>
 
 </manifest>

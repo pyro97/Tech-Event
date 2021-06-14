@@ -10,12 +10,12 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.simonepirozzi.techevent.ui.account.AccountFragment;
-import com.simonepirozzi.techevent.EventiFragment;
-import com.simonepirozzi.techevent.EventiPubblicatiActivity;
-import com.simonepirozzi.techevent.HomeFragment;
-import com.simonepirozzi.techevent.PreferitiFragment;
+import com.simonepirozzi.techevent.ui.event.EventsFragment;
+import com.simonepirozzi.techevent.ui.event.publish.PublishEventActivity;
+import com.simonepirozzi.techevent.ui.home.HomeFragment;
+import com.simonepirozzi.techevent.ui.favourite.FavouriteFragment;
 import com.simonepirozzi.techevent.R;
-import com.simonepirozzi.techevent.RicercaFragment;
+import com.simonepirozzi.techevent.ui.search.RicercaFragment;
 import com.simonepirozzi.techevent.utils.Constants;
 
 public class MainActivity extends Activity implements MainContract.View {
@@ -35,10 +35,10 @@ public class MainActivity extends Activity implements MainContract.View {
                     fragment = new RicercaFragment();
                     break;
                 case R.id.navigation_preferiti:
-                    fragment = new PreferitiFragment();
+                    fragment = new FavouriteFragment();
                     break;
                 case R.id.nuovo_evento:
-                    fragment = new EventiFragment();
+                    fragment = new EventsFragment();
                     break;
                 case R.id.navigation_account:
                     fragment = new AccountFragment();
@@ -64,12 +64,12 @@ public class MainActivity extends Activity implements MainContract.View {
         switch (id) {
             case R.id.navigation_preferiti:
                 navigation.setSelectedItemId(R.id.navigation_preferiti);
-                getFragmentManager().beginTransaction().replace(R.id.frame_container, new PreferitiFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.frame_container, new FavouriteFragment()).commit();
                 break;
             case R.id.nuovo_evento:
                 navigation.setSelectedItemId(R.id.nuovo_evento);
-                getFragmentManager().beginTransaction().replace(R.id.frame_container, new EventiFragment()).commit();
-                Intent intent = new Intent(MainActivity.this, EventiPubblicatiActivity.class);
+                getFragmentManager().beginTransaction().replace(R.id.frame_container, new EventsFragment()).commit();
+                Intent intent = new Intent(MainActivity.this, PublishEventActivity.class);
                 startActivity(intent);
                 break;
             case R.id.navigation_home:
